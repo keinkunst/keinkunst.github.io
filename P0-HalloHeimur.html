@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>P0: Halló Heimur</title>
+    <!-- The style.css file allows you to change the look of your web pages.
+         If you include the next line in all your web pages, they will all share the same look.
+         This makes it easier to make new pages for your site. -->
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- this script only needs to get added once even if there are multiple widget instances -->
+    <script src="http://toolness.github.io/p5.js-widget/p5-widget.js"></script>
+  </head>
+  <body>
+  <div id="header">
+  <a href = "TOLV1AS.html">  <i class="fa fa-home fa-2x" aria-hidden="true"></i>     TÖLV1AS05 - Skapandi Forritun</a>
+  <div class="bar"></div>
+  </div>
+
+  <div id = "content">
+    <h1><i class="fa fa-cog fa-spin fa-fw"></i> P0: Halló Heimur</h1>
+    <h3>-Uppsetning á heimasíðu fyrir p5 verkefni</h3>
+
+
+    <h2>Vefsíðumappan</h2>
+    <ol>
+      <li>Búið til ykkar síðu á <a href="http://www.neocities.org">neocities</a> </li>
+      <li>Breytið síðunni aðeins eftir eigin smekk.</li>
+      <li>Hlaðið síðunni niður og setjið í möppu á góðum stað. Í þessari möppu muntu vinna öll næstu verkefni. <i>Ég mæli með því að allir hafi þessa möppu í skýjinu, með því að nota dropbox, onedrive eða hvað sem þeim hentar. </i>  </li>
+      <li>Sækið p5 með því að velja <b> p5.js complete </b> á <a href="http://www.p5js.org/download">p5 síðunni</a></li>
+      <li>Setjið pakkann beint inn í vefsíðumöppuna ykkar. Hún ætti þá að innihalda þetta: <img src="img/P0-Vefsidumappa.png" alt="Vefsíðumappan" ></li>
+    </ol>
+
+    <h2>Að leysa p5 verkefni</h2>
+
+    Það er mikilvægt að halda skipulega um verkefnin sín og skrárnar.
+    Fylgið þessu verkeferli þegar þið leysið verkefni. Þetta er mjög mikilvægt, því t.d. erum við að vinna með margar skrár sem hafa sama nafnið og ef þær fara ekki í réttar möppur gætum við verið að eyða verkefnum sem við unnum áður.
+
+    <ol>
+      <li>Vertu með góðan ritil á tölvunni. Það er hægt að nota t.d. notepad, alls ekki word. En best er að sækja ritil sérhannaðan fyrir kóðun. T.d. <a href="http://www.sublimetext.com/2" target="_blank"> Sublime Text 2</a>, <a href='http://brackets.io/' target=_blank>Brackets</a>, <a href='https://atom.io/' target=_blank>Atom</a>  eða
+             <a href='http://openprocessing.org' target=_blank>OpenProcessing</a>.</li>
+      <li>Vertu með góðan vafra. Það er svosem sjálfsagt að þið séuð með slíkan, en ég vil bara benda á að það skiptir máli. Ég mun nota google chrome og mun sýna dæmi hvernig við gerum það sem við gerum í honum.</li>
+      <li>Breyttu nafninu á <b>empty-example</b> í vefsíðumöppunni þinni í <b>P0-HalloHeimur</b> </li>
+      <li>Í möppunni eru tvær skrár. index.html skránni þarftu eiginlega aldrei að breyta. sketch.js skráin er forritið þitt. Opnaðu báðar skrárnar í einhverjum góðum ritli.</li>
+      <li> Settu þennan kóða í sketch.js og vistaðu skjalið.
+        <script type="text/p5" data-preview-width="300" data-height="380">
+function setup(){
+    createCanvas(300,300);
+    background(255,0,0);
+    fill(150);
+    ellipse(100,100,50,50);
+    fill(0);
+    textSize(20);
+    text("Halló heimur",200,40);
+}
+      </script></li>
+      <li>Opnaðu index.html í vafra. Þá sérðu forritið keyrast.</li>
+      <li>Athugaðu að íslenskir stafir líklega ekki koma ekki rétt út á síðunni, þetta er einfalt að laga. Opnaðu index.html í ritlinum og bættu línunni <p>&lt;meta charset="UTF-8"&gt;</p> í head hlut kóðans. Vistaðu skjalið.</li>
+      <li>Refresh-aðu index.html í vafranum. Nú ættu íslensku stafirnir að sjást almennilega.</li>
+      <li>Skoðaðu kóðann í sketch.js. Gerðu tilraunir með að breyta honum. Geturðu breytt litunum? Fært hringinn og textann til eins og þú vilt? Gerðu tilraunir með þetta.</li>
+    </ol>
+
+    <h2>Að fylgjast með villum</h2>
+    <ol>
+    <li> Prófaðu að bæta þessum skipunum á eftir hinum í sketch.js skrána þína:
+      <p><code> rect(200,200,10)<br>
+      ellise(100,200,50,50); </code></p>
+    </script></li>
+      <li>Skoðaðu núna síðuna í varfranum, hvað gerist?</li>
+      <li>Þegar við forritum verðum við að passa okkur á villum. Það er algengt og eðlilegt að upp komi villur. En hvernig finnum við þær til þess að geta leyst þær? Við notum vafrann.</li>
+      <li>Í Chrome notum við það sem kallast Web Developers Tools. Opnaðu þessi tól með því að hægrismella á síðuna í vafranum og velja inspect. Eða ýta á <code> Ctrl + Shift + I</code></li>
+      <li>Skoðaðu villumeldingarnar sem koma. Lagaðu sketch skjalið svo kóðinn geri það sem var væntanlega ætlast til.</li>
+      <li>Athugaðu að við fáum ekki villumeldingu um tvennt hér. Ekki fyrir að sleppa því að enda skipun á ; sem við verðum almennt að gera. Og ekki heldur um að skipunin fyrir rétthyrning er rangt notuð og enginn rétthyrningur er teiknaður.</li>
+      <li>Rect skipunin á að taka inn fjórar tölur, ekki þrjár. Bættu við fjórðu tölunni og athugaðu hvort þú getir ekki teiknað þannig rétthyrning.</li>
+      <li>Breyttu litum, stærðum og staðsetningum að vild, gerðu tilraunir með kóðann þar til þú telur þig skilja vel grunnatriðin.</li>
+    </ol>
+
+    <h2>Að uppfæra neocities</h2>
+    <ol>
+      <li>Allar breytingar sem þú gerir á vefsíðuni mæli ég með að þú gerir bara í vefsíðumöppunni. </li>
+      <li>Settu hlekk á verkefnið þitt á forsíðuna þína. Slóðin ætti að vera einhvernvegin svona:
+    <p>&lt;a href="P0-HalloHeimur/index.html"&gt;P0: Halló Heimur&lt;/a&gt;</p></li>
+      <li>Seinna þegar þú leysir ný önnur verkefni, skaltu afrita P0-HalloHeimur möppuna þína, í vefsíðumöppunni, endurnefna, og vinna í sketch.js skránni.</li>
+      <li>Þegar kemur að því að uppfæra neocities síðuna þína, skaltu fara inn á neocities, velja upload, og velja allt innihald vefsíðumöppunnar.</li>
+      <li>Athugaðu að fyrir allar möppur utan um verkefnin, þarftu að búa möppuna líka til í neocities (passaðu að hafa nafnið nákvæmlega það sama) og draga skrárnar þar inn.</li>
+    </ol>
+    <p>Svona munum við skila verkefnum í p5</p>
+
+  </div>
+
+
+  <div id="footer">
+  <div class="bar"></div>
+  <a href = "TOLV1AS.html">  <i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true"></i>     TÖLV1AS05 - Skapandi Forritun</a>
+  </div>
+
+  </body>
+</html>

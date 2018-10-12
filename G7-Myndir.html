@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Myndir</title>
+    <!-- The style.css file allows you to change the look of your web pages.
+         If you include the next line in all your web pages, they will all share the same look.
+         This makes it easier to make new pages for your site. -->
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- this script only needs to get added once even if there are multiple widget instances -->
+    <script src="http://toolness.github.io/p5.js-widget/p5-widget.js"></script>
+  </head>
+  <body>
+  <div id="header">
+  <a href = "TOLV1AS.html">  <i class="fa fa-home fa-2x" aria-hidden="true"></i>     TÖLV1AS05 - Skapandi Forritun</a>
+  <div class="bar"></div>
+  </div>
+
+  <div id = "content">
+
+
+    <h1> Myndir</h1>
+
+    <h2>Hér á eftir að skrifa texta sem er betur sniðinn að því sem við ætlum okkur að gera.</h2>
+    <h3>Skoðið eldri síðuna fyrir skapandi forritun og dundið ykkur við verkefnin þar</h3>
+
+    <h1><a href = "https://skapandiforritun.neocities.org/hljodOgMynd.html"> Skapandi forritun</a></h1>
+
+    <h3>Þar eru líka hlekkir á aðrar síður og myndbönd sem er gott að skoða.</h3>
+
+    <script type="text" data-preview-width="300" data-height="530">
+var ship; //ship breytan geymir myndina.
+
+function preload() {
+  //myndinni er hlaðið niður og hún geymd í “ship”
+  //myndin er vistuð í sömu möppu
+  ship = loadImage("img/spaceship.png");
+}
+
+function setup() {
+  createCanvas(400, 400);
+  ship.resize(100,0);
+}
+function draw() {
+  background(0);
+  //myndin á að vera miðjuð
+  imageMode(CENTER);
+  //myndin sem geymd er í ship er teiknuð í mouseX/Y
+  image(ship, mouseX, mouseY);
+  //syntax: image( mynd, x, y);
+}
+    </script>
+
+<pre><code>var ship; //ship breytan geymir myndina.
+
+function preload() {
+  //myndinni er hlaðið niður og hún geymd í “ship”
+  //myndin er vistuð í sömu möppu
+  ship = loadImage("img/spaceship.png");
+}
+
+function setup() {
+  createCanvas(400, 400);
+  ship.resize(100,0);
+}
+function draw() {
+  background(0);
+  //myndin á að vera miðjuð
+  imageMode(CENTER);
+  //myndin sem geymd er í ship er teiknuð í mouseX/Y
+  image(ship, mouseX, mouseY);
+  //syntax: image( mynd, x, y);
+}
+</code></pre>
+
+<div class="cntrl">
+  <span class="play" data-sketch-id="G6-skip">&#9658; run sketch</span>
+  <span class="stop" data-sketch-id="G6-skip">&#9724; stop sketch</span>
+</div>
+<div class="example">
+<pre style="width: 400px;">
+  <code>var kitty;
+function preload() {
+  kitty = loadImage("kitty.jpg");
+}
+function setup() {
+  createCanvas(400, 400);
+}
+function draw() {
+  background(255);
+  image(kitty, mouseX, mouseY);
+}
+</code>
+</pre>
+<div id="G6-skip" class="example-container" data-sketch-src="sketches/G6_skip.html">
+</div>
+</div>
+
+
+
+
+
+</div>
+
+  <div id="footer">
+  <div class="bar"></div>
+  <a href = "TOLV1AS.html">  <i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true"></i>     TÖLV1AS05 - Skapandi Forritun</a>
+  </div>
+
+  </body>
+</html>

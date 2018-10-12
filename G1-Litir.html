@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Litir og einföld form</title>
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- this script only needs to get added once even if there are multiple widget instances -->
+    <script src="http://toolness.github.io/p5.js-widget/p5-widget.js"></script>
+  </head>
+  <body>
+  <div id="header">
+  <a href = "TOLV1AS.html">  <i class="fa fa-home fa-2x" aria-hidden="true"></i>     TÖLV1AS05 - Skapandi Forritun</a>
+  <div class="bar"></div>
+  </div>
+
+
+
+  <div id = "content">
+    <h1>Litir og einföld form</h1>
+    <h2>Uppbygging p5.js skriftu</h2>
+    <p>Kóðinn í p5.js skriftu mun alltaf innihalda eftirfarandi atriði:</p>
+    <h3><code>function setup() {}</code></h3>
+    <p> Hér er verið að skilgreina hvað á að gerast þegar forritið er keyrt af stað. Þú getur hugsað um setup() fallið eins og græna fánann í scratch skriftunum okkar.
+    <h3><code>createCanvas(w,h);</code></h3>
+    <p> Hér er sagt til um hvað skjárinn okkar verður stór. Ef þessa skipun vantar er enginn skjár til þess að teikna neitt á.
+    </p>
+    <script type="text/p5">
+    function setup() {
+      createCanvas(150, 220);
+    }
+    </script>
+    <p> Þegar þessi kóði er keyrður, gerist sem sagt ekki mikið. Nema forritið býr til skjá sem er 150px á breidd og 220px á hæð. En þá erum við tilbúin að teikna á skjáinn. En hvað á að teikna?
+    </p>
+
+
+    <h2> Form og ferlar (Shapes) </h2>
+
+ <p>Á <a href="https://p5js.org/reference/">reference síðu p5 </a>má sjá hvaða skipanir eru í boði. "2D shapes" skipanirnar teikna mismunandi einföld form: </p>
+<ul>
+<li><a href="https://p5js.org/reference/#/p5/ellipse">ellipse </a>(hringir og ellipsur)</li>
+<li><a href="https://p5js.org/reference/#/p5/line">line</a> (lína)</li>
+<li><a href="https://p5js.org/reference/#/p5/rect">rect </a> (rétthyrningur)</li>
+<li><a href="https://p5js.org/reference/#/p5/triangle">triangle </a>(þríhyrningur)</li>
+<li><a href="https://p5js.org/reference/#/p5/quad">quad </a>(ferhyrningur)</li>
+<li><a href="https://p5js.org/reference/#/p5/point">point </a>(punktur)</li>
+<li><a href="https://p5js.org/reference/#/p5/arc">arc </a> (hluti úr hring)</li>
+</ul>
+<p>
+
+  <p> Til þess að gera ferla sem eru flóknari, þ.e. ekki bara hluti af hring með föstum radíus er hægt að nota kúrvu-föllin, eins og t.d. <a href="https://p5js.org/reference/#/p5/bezier">Bezier fallið.</a></p>
+  </section>
+
+  <div id="sketch-holder">
+        <!-- Our sketch will go here! -->
+      </div>
+
+    <h2> Litir</h2>
+
+      <p>Liti frá hvítum yfir í svart (greyscale) má velja með því að gefa eina tölu á bilinu frá 0 (svart) upp í 255 (hvítt). Ef þrjár tölur eru gefnar segja þær til um hversu mikið rautt, blátt og grænt er í litnum, þær upplýsingar kallast RGB gildi litar. Ef fjórða talan er gefin segir hún til um hversu gegnsær liturinn er. Eftirfarandi skipanir tengjast litum :</p>
+      <ul>
+      <li><a href="https://p5js.org/reference/#/p5/fill">fill</a></li>
+      <li><a href="https://p5js.org/reference/#/p5/fill">noFill</a></li>
+      <li><a href="https://p5js.org/reference/#/p5/stroke">stroke</a> setur litinn á línunni utan um formin </li>
+      <li><a href="https://p5js.org/reference/#/p5/stroke">noStroke</a></li>
+      <li><a href="https://p5js.org/reference/#/p5/strokeWeight">strokeWeight </a> setur þykktina á línum </li>
+      <li><a href="https://p5js.org/reference/#/p5/background">background</a> velur litinn á bakgrunni</li>
+      </ul>
+      </section>
+
+<h2>Hnitakerfið</h2>
+<p>Hnitakerfið í p5.js (og reyndar í flestöllum forritunartungumálum) snýr ekki alveg eins og við erum vön úr stærðfræðinni. Í scratch var hnitakerfið eins og í stærðfræði, punkturinn (0,0) var á miðjum skjánum og x hnitið hækkaði til hægri en y hnitið hækkaði eftir því sem ofar var komið.</p>
+<p>Nú notum við hnitakerfi þar sem (0,0) punkturinn er uppi í vinstra horni skjásins. x hnitið hækkar ennþá til hægri, en y hnitið hækkar niður á við. Allir punktar með neikvæð hnit eru þess vegna fyrir utan skjáinn. </p>
+<p>Lestu forritsbútinn hér að neðan áður en þú keyrir hann og reyndu að sjá fyrir þér hvar svarti, hvíti og rauði hringurinn munu birtast.  </p>
+<script type="text/p5">
+function setup() {
+  createCanvas(150, 220);
+  background(200); // Ljósgrár bakgrunnur
+  fill(0); //Svartur
+  ellipse(50,0,10,10);
+  fill(255); //Hvítur
+  ellipse(10,50,10,10);
+  fill(255,0,0); //Rauður
+  ellipse(50,220,10,10);
+}
+</script>
+<p>Færðu hringina til þangað til þér þykir þú skilja hvernig hnitakerfið virkar. </p>
+
+<h2>Athugasemdir</h2>
+<p>Til þess að gera kóðann okkar læsilegan og setja inn útskýringar notum við athugasemdir, eins og ver gert í forritinu hér að ofan. Allt sem kemur á eftir <code>//</code> í línu er ekki tekið sem forritunarskipun, heldur sem athugasemd frá forritaranum.
+</p>
+
+
+<section>
+  <h2>Kennsluvefir í p5</h2>
+<p>Hér eru góðar leiðbeiningar um hvernig má teikna form og nota liti:
+ <a href="http://coursescript.com/notes/interactivecomputing/drawing/index.html"> Drawing shapes, John Kuiphoff</a>
+</p>
+<p> Hér eru leiðbeiningar um fyrstu skref í p5 og dæmi um notkun á ellipse, rect og fleiri skipunum:
+ <a href="http://creative-coding.decontextualize.com/first-steps/"> First steps, creative coding, Allison Parrish</a>
+</p>
+<p> Á reference síðunni fyrir p5 má sjá lista yfir hvaða skipanir eru í boði og dæmi um notkun:
+ <a href="https://p5js.org/reference/"> p5 reference á p5.org.</a>
+</p>
+</section>
+  </div>
+
+  <div id="footer">
+  <div class="bar"></div>
+  <a href = "TOLV1AS.html">  <i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true"></i>     TÖLV1AS05 - Skapandi Forritun</a>
+  </div>
+
+
+  </body>
+</html>

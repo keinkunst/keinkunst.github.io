@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hlutir og klasar</title>
+    <!-- The style.css file allows you to change the look of your web pages.
+         If you include the next line in all your web pages, they will all share the same look.
+         This makes it easier to make new pages for your site. -->
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- this script only needs to get added once even if there are multiple widget instances -->
+    <script src="http://toolness.github.io/p5.js-widget/p5-widget.js"></script>
+  </head>
+  <body>
+  <div id="header">
+  <a href = "TOLV1AS.html">  <i class="fa fa-home fa-2x" aria-hidden="true"></i>     TÖLV1AS05 - Skapandi Forritun</a>
+  <div class="bar"></div>
+  </div>
+
+  <div id = "content">
+
+
+    <h1>Hlutir og klasar</h1>
+
+
+<p><a href = "https://www.youtube.com/watch?v=T-HGdc8L-7w">Hér er myndband</a> þar sem Daniel Shiffman talar um hluti og klasa.</p>
+
+
+<h2>Hvað eru hlutir og klasar?</h2>
+
+<p>Lykillinn að hlutbundinni forritun er að nora hluti og klasa. Þeir eru gagnleg tól til þess að glæða skrifturnar okkar lífi.</p>
+
+<p>Hugsum um Gúmbana, óvini Maríós.</p>
+
+
+<img src="img/goomba.gif" alt="Goomba" style="width:100px;">
+
+<p>Hvernig myndir þú búa slíkann kall til? Hvernig gerirðu marga slíka karla.</p>
+
+<p>Það sem forritari Nintendo hefur væntanlega gert er að búa til <b>klasa</b>, hann gæti heitið Goomba</p>
+
+<p>Klasinn segir til um hvað Gúmbi er, hvernig hann lítur út og hvernig hann hegðar sér.</p>
+
+<p>Þegar forritari vill setja nokkra Gúmba í borð, býr hann þá til eftir uppskriftinni sem er klasinn.</p>
+
+<p>Hver og einn Gúmbi sem er búinn til er <b>hlutur</b>, þeir gætu heitið gúmbi1, jói, gúmbi2 o.s.frv.</p>
+
+<p>Kóðinn sem býr til gúmbana gæti litið einhvern veginn svona út:
+<pre>
+<code>
+var gúmbi1, jói, gúmbi2;
+
+function setup() {
+  // Smíðum þrjá hluti af klasanum Goomba.
+  gúmbi1 = new Goomba();
+  jói = new Goomba();
+  gúmbi2 = new Goomba();
+}
+
+function draw() {
+  // Einhver kóði sem lætur gúmbana gera eitthvað
+}
+
+// Skilgreinum klasann Goomba
+class Goomba {
+  // Kóðinn sem segir hvað Gúmbar eru og hvað þeir geta gert.
+}
+
+</code>
+</pre>
+
+<p>Lykilorðið <code>new</code> er nýtt og táknar að búa eigi til nýjan hlut af ákveðnum klasa.</p>
+
+<p>Svo við getum orðað þetta einhvernveginn svona:</p>
+
+<ul>
+<li><b>Klasi</b> er kökuformið </li>
+<li><b>Hlutir</b> eru kökurnar, sem kökuformið segir til um hvernig eiga að vera. </li>
+</ul>
+
+<h2>Sápukúlur</h2>
+
+<p>Hér er okkar fyrsta dæmi um klasa:</p>
+
+<script type="text/p5" data-preview-width="400" data-height="780">
+var bubble1, bubble2;
+
+function setup() {
+  createCanvas(400,700);
+  bubble1 = new Bubble();
+  bubble2 = new Bubble();
+}
+function draw() {
+  background(255,200,0);
+  bubble1.move();
+  bubble1.show();
+  bubble2.move();
+  bubble2.show();
+}
+
+// Býr til sápukúlu, sem flýtur stjórnlaust um skjáinn.
+class Bubble{
+  // Smíðar nýja sápukúlu og gefur henni allar þarfar breytur
+  constructor() {
+    this.x = 200;
+    this.y = 200;
+  }
+	// Hreyfir sápukúluna til
+  move() {
+    this.x = this.x + random(-2,2);
+    this.y = this.y + random(-2,2);
+  }
+	// Teiknar sápukúluna
+  show() {
+    stroke(255);
+    strokeWeight(3);
+    noFill();
+    ellipse(this.x,this.y,20,20);
+  }
+}
+</script>
+
+<p><i class="fa fa-remove fa-spin fa-fw"></i> Prófaðu að bæta við tveimur
+  sápukúlum í viðbót.</p>
+
+  <p><i class="fa fa-remove fa-spin fa-fw"></i> Breyttu klasanum þannig að
+    kúlurnar geti verið misstórar.</p>
+
+
+
+<h2>Aðferðir og smiðir</h2>
+
+<h3>Aðferðir</h3>
+
+<p>Klasa tilheyra yfirleitt aðferðir  (e. method), aðferð er ekki annað en fall.</p>
+
+<p>Eins og önnur föll geta aðferðir tekið inn gildi og skilað gildum.</p>
+
+<p>Í dæminu um sápukúlurnar eru aðferðirnar <code>move()</code> og <code>show()</code></p>
+
+<h3>Smiðir</h3>
+
+<p>Það er nauðsynlegt að klasi hafi a.m.k. einn smið (e. constructor).
+  Smiður er aðferð sem segir til um hvernig hluturinn er búinn til.</p>
+
+<p>Aðalhlutverk smiða er að setja upp allar breytur sem tilheyra hlutnum.</p>
+
+<p>Í dæminu um sápukúlurnar er smiðurinn <code>constuctor()</code></p>
+
+<p>Smiðir geta líka tekið inn gildi, og það er eðlilegt að þeir geri það fyrir
+  flestar innbyggða beytur og stilli þær.</p>
+
+
+<h2>Breytur</h2>
+
+<p>Oftast tilheyra klasa nokkrar breytur. Inni í klasanum eru þær nefndar
+venjulegum breytunöfnum nema við setjum <code>this.</code> fyrir framan.</p>
+
+<p>Í dæminu um sápukúlurnar eru breyturnar í Bubble klasaum
+  <code>this.x</code> og <code>this.y</code></p>
+
+
+<h2>Hlutir</h2>
+
+<p> Til að búa til nýjan hlut af ákveðnum klasa þarf að nota orðið new.</p>
+
+<p> Til þess að nota aðgerð á hlut, skrifum við nafnið á hlutnum og
+  svo aðgerðinni með punkti á milli.</p>
+
+<p>Í dæminu um sápukúlurnar er t.d. hluturinn bubble1  hreyfður til með skipuninni
+  <code>bubble1.move()</code></p>
+
+
+  <p>Ef við viljum nota breytugildi fyrir einhvern hlut. Þá skrifum við með
+  svipuðum hætti nafnið á hlutnum og nafnið á breytunni með punkt á milli.</p>
+
+  <p>Ef t.d. við vildum í dæminu um sápukúlurnar nota x hnitið á bubble1 í
+     einhverjum reikningum myndum við fá það gildi með því að skrifa
+    <code>bubble1.x</code></p>
+
+<h2>Dæmi með boltum</h2>
+
+<p>Hér er búinn til klasinn Ball og tveir hlutir, ball1 og ball2.</p>
+
+<script type="text/p5" data-preview-width="400" data-height="780">
+var bolti1, bolti2;
+var litur1, litur2;
+
+function setup() {
+  createCanvas(400,700);
+	litur1 = color(236,36,94);
+	litur2 = color(94,36,236);
+  bolti1 = new Ball(100,100,litur1);
+  bolti2 = new Ball(100,500,litur2);
+}
+function draw() {
+  background(255,200,0);
+  bolti1.move();
+  bolti1.show();
+  bolti2.move();
+  bolti2.show();
+}
+
+// Býr til bolta sem fer um skjáinn+
+// og skoppar af mörkum hans
+class Ball{
+  // Býr til nýjann bolta með miðju í (x,y)
+	// litur: stjórnar litnum á boltanum
+  constructor(x,y,litur) {
+    this.x = x;
+    this.y = y;
+		this.xSpeed = random(-2,2);
+		this.ySpeed = random(-2,2);
+		this.litur = litur;
+  }
+	// Hreyfir sápukúluna til
+  move() {
+    this.x = this.x + this.xSpeed;
+    this.y = this.y + this.ySpeed;
+		this.bounce();
+  }
+	// Lætur boltann skoppa af veggjunum
+	bounce() {
+    if(this.x < 0 || this.x > width){
+			this.xSpeed = -this.xSpeed;
+		}
+    if(this.y < 0 || this.y > height){
+			this.ySpeed = -this.ySpeed;
+		}
+  }
+	// Teiknar boltann
+  show() {
+    noStroke(0);
+    fill(this.litur);
+    ellipse(this.x,this.y,20,20);
+  }
+}
+</script>
+
+<p><i class="fa fa-remove fa-spin fa-fw"></i> Prófaðu að bæta við tveimur boltum í viðbót.</p>
+
+<p><i class="fa fa-remove fa-spin fa-fw"></i> Prófaðu að breyta klasanum þannig að boltarnir geti verið misstórir.</p>
+
+</div>
+
+<div id="footer">
+<div class="bar"></div>
+<a href = "TOLV1AS.html">  <i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true"></i>     TÖLV1AS05 - Skapandi Forritun</a>
+</div>
+
+</body>
+</html>
