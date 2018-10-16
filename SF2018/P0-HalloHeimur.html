@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>P0: Halló Heimur</title>
+    <!-- The style.css file allows you to change the look of your web pages.
+         If you include the next line in all your web pages, they will all share the same look.
+         This makes it easier to make new pages for your site. -->
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- this script only needs to get added once even if there are multiple widget instances -->
+    <script src="https://toolness.github.io/p5.js-widget/p5-widget.js"></script>
+  </head>
+  <body>
+  <div id="header">
+  <a href = "TOLV1AS.html">  <i class="fa fa-home fa-2x" aria-hidden="true"></i>     TÖLV1AS05 - Skapandi Forritun</a>
+  <div class="bar"></div>
+  </div>
+
+  <div id = "content">
+    <h1><i class="fa fa-cog fa-spin fa-fw"></i> P0: Halló Heimur</h1>
+    <h3>- Þar sem við prófum p5.js og athugum að allt virki</h3>
+
+
+    <h2>Áður en þú byjar</h2>
+
+    Fyrir þetta verkefni er gert ráð fyrir því að þú hafir farið í gegnum grunnatriðin. Þú skalt hafa gert eftirfrandi tilbúið:
+    <ol>
+      <li> Þú hefur sett upp einfalda heimasíðu og þekkir grunnatriðin í html.</li>
+      <li> Heimasíðan er geymd í vel skipulagðri möppu þar sem einnig eru t.d. skráin p5.min.js</li>
+      <li> Þú hefur sett upp GitHub reikning og hýsir síðuna þína á GitHub.</li>
+      <li> Þú kannt að uppfæra síðuna þína beint í gegnum Atom. </li>
+      <li> Þú hefur sett upp allt sem þarf til að keyra Local Server. </a> </li>
+      <li> Þú kannt að setja Local Server í gang og sjá þína síðu með Localhost.</li>
+    </ol>
+
+    <h2>Að leysa p5 verkefni</h2>
+
+    Í möppunni þinni ætti nú þegar að vera mappa með heitinu <stong>P0-HalloHeimur</strong>. Í þessari möppu vinnurðu þetta fyrsta prufuverkefni.
+
+    <ol>
+      <li> Í möppunni eru tvær skrár. index.html skránni þarftu eiginlega aldrei að breyta. sketch.js skráin er forritið þitt. Opnaðu báðar skrárnar í Atom.</li>
+      <li> Settu þennan kóða í sketch.js og vistaðu skjalið.
+        <script type="text/p5" data-preview-width="300" data-height="380">
+function setup(){
+    createCanvas(300,300);
+    background(255,0,0);
+    fill(150);
+    ellipse(100,100,50,50);
+    fill(0);
+    textSize(20);
+    text("Halló heimur",200,40);
+}
+      </script></li>
+      <li>Opnaðu index.html í vafra. Þá sérðu forritið keyrast.</li>
+      <li>Skoðaðu kóðann í sketch.js. Gerðu tilraunir með að breyta honum. Geturðu breytt litunum? Fært hringinn og textann til eins og þú vilt? Gerðu tilraunir með þetta.</li>
+    </ol>
+
+    <h2>Að fylgjast með villum</h2>
+    <ol>
+    <li> Prófaðu að bæta þessum skipunum á eftir hinum í sketch.js skrána þína:
+      <p><code>rect(200,200,10)<br>ellise(100,200,50,50); </code></p>
+    </script></li>
+      <li>Skoðaðu núna síðuna í varfranum, hvað gerist?</li>
+      <li>Þegar við forritum verðum við að passa okkur á villum. Það er algengt og eðlilegt að upp komi villur. En hvernig finnum við þær til þess að geta leyst þær? Við notum vafrann.</li>
+      <li>Í Chrome notum við það sem kallast Web Developers Tools. Opnaðu þessi tól með því að hægrismella á síðuna í vafranum og velja inspect. Eða ýta á <code> Ctrl + Shift + I</code></li>
+      <li>Ef þú sérð ekki villumeldingarnar strax þarftu að velja flipann <strong>Console</strong>.</li>
+      <li>Skoðaðu villumeldingarnar sem koma. Lagaðu sketch skjalið svo kóðinn geri það sem var væntanlega ætlast til.</li>
+      <li>Athugaðu að við fáum ekki villumeldingu um tvennt hér. Ekki fyrir að sleppa því að enda skipun á ; sem við verðum almennt að gera. Og ekki heldur um að skipunin fyrir rétthyrning er rangt notuð og enginn rétthyrningur er teiknaður.</li>
+      <li>Rect skipunin á að taka inn fjórar tölur, ekki þrjár. Bættu við fjórðu tölunni og athugaðu hvort þú getir ekki teiknað þannig rétthyrning.</li>
+      <li>Til þess að vita hvað skipanir eiga að taka inn mörg gildi og hvað þau gildi tákna, leitum við að því sem við þurfum í p5.js refernce-inum. Hér er færslan fyrir skipunina fyrir rétthyrning: <a target="_blank" href="https://p5js.org/reference/#/p5/rect">https://p5js.org/reference/#/p5/rect</a></li>
+      <li>Breyttu litum, stærðum og staðsetningum að vild, gerðu tilraunir með kóðann þar til þú telur þig skilja vel grunnatriðin.</li>
+    </ol>
+
+    <h2>Að uppfæra síðuna þína</h2>
+
+    Þegar þú klárar verkefni verðuru að deila því með heiminum, og þar með mér, kennaranum þínum.
+    <ol>
+      <li>Settu hlekk á verkefnið þitt á forsíðuna þína. Slóðin ætti að vera einhvernvegin svona:
+    <p><code>&lt;a href="P0-HalloHeimur/index.html"&gt;P0: Halló Heimur&lt;/a&gt;</code></p></li>
+      <li>Seinna þegar þú leysir önnur verkefni, skaltu afrita P0-HalloHeimur möppuna þína, í vefsíðumöppunni, endurnefna, og vinna í sketch.js skránni.</li>
+      <li>Uppfærðu heimasíðuna þína á GitHub í gegnum Atom.</li>
+      <li>Oft gefum við "Commit"-um í GitHub ekki sérlega lýsandi nöfn. En ég mæli með því að minnsta kosti þegar þú setur inn nýtt verkefni að þú skrifir nafnið á verkefninu. Þannig hefurðu yfirsýn yfir þróunn síðunnar og getur með einföldum hætti sótt gamlar útgáfur ef til þess kemur að þess þurfi.</li>
+    </ol>
+    <p>Svona munum við skila verkefnum í p5.js</p>
+
+  </div>
+
+
+  <div id="footer">
+  <div class="bar"></div>
+  <a href = "TOLV1AS.html">  <i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true"></i>     TÖLV1AS05 - Skapandi Forritun</a>
+  </div>
+
+  </body>
+</html>
