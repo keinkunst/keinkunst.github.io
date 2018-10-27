@@ -1,10 +1,20 @@
-function setup(){
-    createCanvas(300,300);
-    background(255,0,0);
-    fill(150);
-    ellipse(100,100,50,50);
-    fill(0);
-    textSize(20);
-    text("Halló heimur",200,40);rect(200,200,10)
-ellise(100,200,50,50); 
+
+var table;
+
+function preload() {
+//my table is comma separated value "csv"
+//and has a header specifying the columns labels
+table = loadTable('data/syslur.csv', 'csv', 'header');
+}
+
+function setup() {
+  var rows = table.getRows();
+  var longest = '';
+  for (var r = 0; r < rows.length; r++) {
+    var species = rows[r].getString('Name');
+    if (longest.length < species.length) {
+      longest = species;
+    }
+  }
+  print('longest: ' + longest);
 }
