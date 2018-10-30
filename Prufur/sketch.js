@@ -1,20 +1,14 @@
-
-var table;
-
+var img;
 function preload() {
-//my table is comma separated value "csv"
-//and has a header specifying the columns labels
-table = loadTable('data/syslur.csv', 'csv', 'header');
+  img = loadImage('data/Island.png');
 }
 
 function setup() {
-  var rows = table.getRows();
-  var longest = '';
-  for (var r = 0; r < rows.length; r++) {
-    var species = rows[r].getString('Name');
-    if (longest.length < species.length) {
-      longest = species;
-    }
+  createCanvas(img.width,img.height);
+  image(img, 0, 0);
+  for (var i = 0; i < img.width; i++) {
+    var c = img.get(i, img.height / 2);
+    stroke(c);
+    line(i, height / 2, i, height);
   }
-  print('longest: ' + longest);
 }
