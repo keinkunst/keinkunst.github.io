@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Boltaleikir</title>
+  <!-- The style.css file allows you to change the look of your web pages.
+  If you include the next line in all your web pages, they will all share the same look.
+  This makes it easier to make new pages for your site. -->
+  <link href="style.css" rel="stylesheet" type="text/css" media="all">
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+  <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- this script only needs to get added once even if there are multiple widget instances -->
+  <script src="https://toolness.github.io/p5.js-widget/p5-widget.js"></script>
+</head>
+<body>
+  <div id="header">
+    <a href = "TOLV1AS.html">  <i class="fa fa-home fa-2x" aria-hidden="true"></i>     TÖLV1AS05 - Skapandi Forritun</a>
+    <div class="bar"></div>
+  </div>
+
+  <div id = "content">
+    <h1>Boltaleikir</h1>
+    <h2> Bolti á ferð </h2>
+    <p> Draw er í raun lykkja. Í forritinu hér fyrir neðan er bætt við x gildið í hvert skipti sem farið er í gegn um draw. Boltinn er teiknaður í staðsetningunni x og þess vegna er eins og hann færist yfir skjáinn.</p>
+
+    
+    <script type="text/p5" data-preview-width="400" data-height="380">
+    var x = 0;
+
+    function setup() {
+      createCanvas(400,300);
+    }
+
+    function draw() {
+      background(255,200,0);
+      fill(236,36,94);
+      //hringur teiknaður í x, 100:
+      ellipse(x, 150, 30,30);
+      //hringur færist um 1 til hægri
+      //í hvert skipti sem farið er í gegn um draw:
+      x = x+1;
+    }
+    </script>
+
+    <h2> Skilyrðissetning snýr boltanum við </h2>
+
+    <p>  Kóðinn hér fyrir neðan gerir nákvæmlega það sama og kóðinn hér fyrir ofan. Eini munurinn er að nú hefur verið búin til breytan xSpeed sem ákvarðar hversu mikið x eykst í hverju skrefi:</p>
+
+    <script type="text/p5" data-preview-width="400" data-height="380">
+    // x og xSpeed eru breytur (variables).
+    // x byrjar í 0 (vinstra megin á skjánum) en færist um 5 í hverju skrefi
+    var x = 0;
+    var xSpeed = 1;
+
+    function setup() {
+      createCanvas(400,300);
+    }
+
+    function draw() {
+      background(255,200,0);
+      fill(236,36,94);
+      ellipse(x, 150, 30,30);
+      x = x + xSpeed;
+    }
+    </script>
+
+    <p><i class="fa fa-remove fa-spin fa-fw"></i> Prófaðu að breyta gildinu á xSpeed, áhrifin ættu að vera fyrirsjáanleg.</p>
+    <p><i class="fa fa-remove fa-spin fa-fw"></i>Prófaðu að breyta xSpeed í neikvætt gildi, t.s. -1. Veltu fyrir þér hvaða áhrif það hefur. Líklega er gott að breyta upphafsstaðsetningunni til að sjá vel hvað gerist. </p>
+    <p><i class="fa fa-remove fa-spin fa-fw"></i>Láttu boltann byrja á hægri enda skjásins. Athugaðu að þá er eðlilegt að nota breytuna width, en hún er ekki skilgreind fyrr en með CreateCanvas() skipuninni.</p>
+
+    <p>Þegar boltinn er á leið til hægri er x að aukast. Þegar boltinn ferðast til vinstri er x að minnka. xSpeed þarf að vera jákvæð tala þegar boltinn er á leið til hægri, en neikvæð tala þegar boltinn er á leið til vinstri. Það getum við gert með því að breyta formerkinu á xSpeed þegar boltinn er kominn út á enda.</p>
+
+    <p><i class="fa fa-remove fa-spin fa-fw"></i>  Bættu þessum kóða inn í draw() fallið:</p>
+    <pre>
+      //ef boltinn er kominn út á enda hægra megin á hann að snúa við
+      if(x > width){
+        xSpeed = -1*xSpeed;
+      }
+
+      //ef boltinn er kominn út á enda vinstra megin á hann líka að snúa við!
+      if(x < 0){
+        xSpeed = -1*xSpeed;
+      }
+    </pre>
+
+    <p><a href="https://www.youtube.com/watch?v=LO3Awjn_gyU"> Hér er myndbandið</a>  "bouncing ball" frá Daniel Shiffman.</p>
+
+
+    <h2> Bolti hreyfist í tveimur víddum </h2>
+    <p> Í staðinn fyrir að hafa tvær if setningar, getum við haft eina. Við viljum að boltinn snúi við ef x>width, <strong>eða</strong> ef x < 0. Þetta má skrifa sem: </p>
+
+    <pre>
+      if (x > width || x < 0 ) {
+        xSpeed = xSpeed * -1;
+      }
+    </pre>
+
+    Ef við viljum að eitthvað tvennt sé satt skrifum við <strong>&& (OG)</strong> en ef það nægir að annað af tveimur sé satt skrifum við <strong> || (EÐA) </strong>.
+    Til að boltinn hreyfist í tveimur víddum, þarf að bæta við breytu fyrir y og y-hraða:</p>
+
+
+    <script type="text/p5" data-preview-width="300" data-height="530">
+    var x = 0;
+    var y = 0;
+    var xSpeed = 2;
+    var ySpeed = 1;
+
+    function setup() {
+      createCanvas(300,450);
+    }
+
+    function draw() {
+      background(255,200,0);
+      fill(236,36,94);
+      ellipse(x, y, 30, 30);
+      x = x + xSpeed;
+      y = y +ySpeed;
+      if ((x > width) || (x < 0)) {
+        xSpeed = xSpeed * -1;
+      }
+      if ((y > height) || (y < 0)) {
+        ySpeed = ySpeed * -1;
+      }
+    }
+  </script>
+
+
+  <h2> Boltinn fær hröðun </h2>
+
+  <p>Þegar hlutur fellur eykst hraði hans stöðugt á meðan hann er að falla, þar til lokahraða hans er náð. Þessu getum við náð fram með því að bæta við xSpeed í hverju skrefi:</p>
+  <pre>
+    var gravity = 0.15 //þetta fer efst. Passið að hafa punkt en ekki kommu!
+
+    ySpeed = ySpeed + gravity; //þessi lína fer inn í draw.
+  </pre>
+  <p>Þegar hluturinn er á leið niður verður ySpeed alltaf stærri og stærri tala. Þegar hluturinn er á leið upp er xSpeed neikvætt, en gravity er jákvætt þannig að hluturinn hægir á sér á leið upp. Við gætum líka viljað bæta við kóða þannig að hluturinn skoppi alltaf aðeins lægra í hvert sinn. Ef við margföldum með -0.9 í stað -1 mun hluturinn snúa við á endunum en hægja aðeins á sér við hvert "skopp".</p>
+
+  <script type="text/p5" data-preview-width="300" data-height="530">
+  var x = 0;
+  var y = 0;
+  var xSpeed = 2;
+  var ySpeed = 0;
+  var gravity = 0.15;
+
+  function setup() {
+    createCanvas(300,450);
+  }
+
+  function draw() {
+    background(255,200,0);
+    fill(236,36,94);
+    ellipse(x, y, 30, 30);
+    x = x + xSpeed;
+    y = y +ySpeed;
+    ySpeed = ySpeed+gravity;
+    if ((x > width) || (x < 0)) {
+      xSpeed = xSpeed * -1;
+    }
+    //til að láta boltann skoppa þegar neðri rönd snertir
+    //skjáinn þarf að draga 15 frá height, því þvermál
+    //boltans er 30.
+    if (y > (height-15)) {
+      ySpeed = ySpeed * -0.9;
+      y = height-15; //til að boltinn festist ekki
+    }
+  }
+</script>
+</div>
+
+
+<div id="footer">
+  <div class="bar"></div>
+  <a href = "TOLV1AS.html">  <i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true"></i>     TÖLV1AS05 - Skapandi Forritun</a>
+</div>
+
+</body>
+</html>

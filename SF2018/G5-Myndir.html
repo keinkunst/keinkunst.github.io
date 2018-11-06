@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Myndir</title>
+  <!-- The style.css file allows you to change the look of your web pages.
+  If you include the next line in all your web pages, they will all share the same look.
+  This makes it easier to make new pages for your site. -->
+  <link href="style.css" rel="stylesheet" type="text/css" media="all">
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+  <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- this script only needs to get added once even if there are multiple widget instances -->
+  <script src="https://toolness.github.io/p5.js-widget/p5-widget.js"></script>
+</head>
+<body>
+  <div id="header">
+    <a href = "TOLV1AS.html">  <i class="fa fa-home fa-2x" aria-hidden="true"></i>     TÖLV1AS05 - Skapandi Forritun</a>
+    <div class="bar"></div>
+  </div>
+
+  <div id = "content">
+    <h1>Myndir</h1>
+    <h2>Að setja mynd inn á síðuna</h2>
+    <p>Það er lítið mál að setja mynd inn á síðuna sína. Þetta lærðirðu að gera í codecademy, manstu þegar þú gerðir heimasíðuna um birni?</p>
+
+    <p>Með þassum kóða:</p>
+
+    <pre> &lt;img src="img/G5-magic-cliffs.jpg" alt="Magic Cliffs - ansimuz"&gt </pre>
+
+    <p>Set ég inn á síðuna þessa mynd:</p>
+
+    <img src="img/G5-magic-cliffs.png" alt="Magic Cliffs - Ansimuz">
+
+    <a href="https://opengameart.org/content/magic-cliffs-environment" target="_blank">Opengameart.org Anismuz</a>
+
+    <p>Til þess að þetta virki er myndin sjálf vistuð í möppunni /img sem er á sama stað og þessi vefsíða. </p>
+
+
+    <h2>Að nota myndir í skriftum</h2>
+    <p>Við getum líka notað myndir í p5.js skriftunum okkar. Hér sérðu letidýr sem fylgir músarbendlinum. </p>
+
+        <iframe src="G5-loadImage/index.html" width="600" height ="300" scrolling = "no"></iframe>
+<p>Forritið hefur þennan kóða:</p>
+<pre>
+var mynd;
+
+function preload() {
+  mynd = loadImage('assets/sloth.png'); // https://opengameart.org/content/animal-pack-redux
+}
+
+function setup() {
+  createCanvas(600,300);
+}
+
+function draw(){
+	background(255,200,0);
+  image(mynd,mouseX,mouseY);
+}
+</pre>
+
+<p><strong>var mynd;</strong> Við búum fyrir til breytu sem mun geyma myndina.</p>
+<p><strong>function preLoad()</strong> Það sem er inni í preLoad() dallinu er eins og setup() aðeins keyrt einu sinni. En preLoad() er keyrt á undan setup() og setup() byrjar ekki að keyrast fyrr en öllu er lokið sem hafið var í preLoad(), því er öll vinna sem gæti hugsanlega tekið smástund, eins og að sækja myndir eða aðrar skrá, sett í preLoad()</p>
+<p><strong>loadImage()</strong> Myndin er sótt. Myndina setti ég í möppuna /assets (þetta er algengt nafn á slíka möppu sem geymir svona gögn sem eru notuð). Mappan þarf að sjálfsögðu að vera staðsett á sama stað og forritið mitt.</p>
+<p><strong>image()</strong> Hér erum við að teikna myndina. Fallið tekur inn breytuna sem geymir myndina, hér mymd. Það tekur líka inn tvær tölur sem gefa staðsetningu myndarinnar, við notuðum hér hnitin á músinni.</p>
+
+<p>Prófaðu að smella á næsta forrit með bendlinum, prófaðu svo líka að ýta á takka á lyklaborðinu:</p>
+
+<iframe src="G5-bkgrImage/index.html" width="700" height ="450" scrolling = "no"></iframe>
+
+<p>Hér er kóðinn fyrir síðustu skriftu. Að sjálfsögðu þurftu myndirnar sem eru notaðar að vera á réttum stað.</p>
+<pre>
+var rostungur;
+var hundur;
+
+function preload() {
+  rostungur = loadImage('assets/walrus.png'); // https://opengameart.org/content/animal-pack-redux
+  hundur = loadImage('assets/einhundingur.jpg'); // https://www.pexels.com/photo/boston-terrier-wearing-unicorn-pet-costume-1564506/
+}
+
+function setup() {
+  createCanvas(700,450);
+  background(hundur);
+}
+
+function draw() {
+  ellipse (random(0,width),random(0,height),10,10);
+}
+function mousePressed() {
+  imageMode(CENTER);
+  image(rostungur,mouseX,mouseY);
+}
+
+function keyPressed() {
+  imageMode(CORNER);
+  background(hundur);
+}
+</pre>
+
+  </div>
+  <div id="footer">
+    <div class="bar"></div>
+    <a href = "TOLV1AS.html">  <i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true"></i>     TÖLV1AS05 - Skapandi Forritun</a>
+  </div>
+
+</body>
+</html>
