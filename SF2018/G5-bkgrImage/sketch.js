@@ -14,10 +14,11 @@ function setup() {
   createCanvas(700,450);
   background(hundur);
   colorMode(HSB);
+  frameRate(2);
 }
 
 function draw() {
-  hlutfall = random(0.1,0.3);
+  hlutfall = random(0.05,0.2);
   tint(random(0,360),75,255);
   imageMode(CENTER);
   image(elgur, random(0,width),random(0,height),elgur.width*hlutfall,elgur.height*hlutfall);
