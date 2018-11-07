@@ -5,9 +5,9 @@ var hlutfall = 1;
 
 
 function preload() {
-  rostungur = loadImage('assets/walrus.png');
-  elgur = loadImage('assets/moose.png');
-  hundur = loadImage('assets/einhundingur.jpg');
+  rostungur = loadImage('assets/walrus.png'); // https://opengameart.org/content/animal-pack-redux
+  elgur = loadImage('assets/moose.png'); // https://opengameart.org/content/animal-pack-redux
+  hundur = loadImage('assets/einhundingur.jpg'); // https://www.pexels.com/photo/boston-terrier-wearing-unicorn-pet-costume-1564506/
 }
 
 function setup() {
@@ -17,8 +17,7 @@ function setup() {
 }
 
 function draw() {
-  fill(random(0,360),75,255);
-  hlutfall = random(0.2,0.5);
+  hlutfall = random(0.1,0.3);
   image(elgur, random(0,width),random(0,height),elgur.width*hlutfall,elgur.height*hlutfall);
 }
 function mousePressed() {

@@ -71,20 +71,26 @@ function draw(){
 <p>Hér er kóðinn fyrir síðustu skriftu. Að sjálfsögðu þurftu myndirnar sem eru notaðar að vera á réttum stað.</p>
 <pre>
 var rostungur;
+var elgur;
 var hundur;
+var hlutfall = 1;
+
 
 function preload() {
   rostungur = loadImage('assets/walrus.png'); // https://opengameart.org/content/animal-pack-redux
+  elgur = loadImage('assets/moose.png'); // https://opengameart.org/content/animal-pack-redux
   hundur = loadImage('assets/einhundingur.jpg'); // https://www.pexels.com/photo/boston-terrier-wearing-unicorn-pet-costume-1564506/
 }
 
 function setup() {
   createCanvas(700,450);
   background(hundur);
+  colorMode(HSB);
 }
 
 function draw() {
-  ellipse (random(0,width),random(0,height),10,10);
+  hlutfall = random(0.1,0.3);
+  image(elgur, random(0,width),random(0,height),elgur.width*hlutfall,elgur.height*hlutfall);
 }
 function mousePressed() {
   imageMode(CENTER);
