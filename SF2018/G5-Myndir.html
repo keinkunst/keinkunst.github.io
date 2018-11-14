@@ -24,7 +24,7 @@
     <h2>Að setja mynd inn á síðuna</h2>
     <p>Það er lítið mál að setja mynd inn á síðuna sína. Þetta lærðirðu að gera í codecademy, manstu þegar þú gerðir heimasíðuna um birni?</p>
 
-    <p>Með þassum kóða:</p>
+    <p>Með þessum kóða:</p>
 
     <pre> &lt;img src="img/G5-magic-cliffs.jpg" alt="Magic Cliffs - ansimuz"&gt </pre>
 
@@ -43,10 +43,10 @@
         <iframe src="G5-loadImage/index.html" width="600" height ="300" scrolling = "no"></iframe>
 <p>Forritið hefur þennan kóða:</p>
 <pre>
-var mynd;
+var letidyr;
 
 function preload() {
-  mynd = loadImage('assets/sloth.png'); // https://opengameart.org/content/animal-pack-redux
+  letidyr = loadImage('assets/sloth.png'); // https://opengameart.org/content/animal-pack-redux
 }
 
 function setup() {
@@ -54,15 +54,15 @@ function setup() {
 }
 
 function draw(){
-	background(255,200,0);
-  image(mynd,mouseX,mouseY);
+  background(255,200,0);
+  image(letidyr,mouseX,mouseY);
 }
 </pre>
 
-<p><strong>var mynd;</strong> Við búum fyrir til breytu sem mun geyma myndina.</p>
-<p><strong>function preLoad()</strong> Það sem er inni í preLoad() dallinu er eins og setup() aðeins keyrt einu sinni. En preLoad() er keyrt á undan setup() og setup() byrjar ekki að keyrast fyrr en öllu er lokið sem hafið var í preLoad(), því er öll vinna sem gæti hugsanlega tekið smástund, eins og að sækja myndir eða aðrar skrá, sett í preLoad()</p>
+<p><strong>var letidyr;</strong> Við búum fyrir til breytu sem mun geyma myndina.</p>
+<p><strong>function preLoad()</strong> Það sem er inni í preLoad() fallinu er eins og setup() aðeins keyrt einu sinni. En preLoad() er keyrt á undan setup() og setup() byrjar ekki að keyrast fyrr en öllu er lokið sem hafið var í preLoad(), því er öll vinna sem gæti hugsanlega tekið smástund, eins og að sækja myndir eða aðrar skrá, sett í preLoad()</p>
 <p><strong>loadImage()</strong> Myndin er sótt. Myndina setti ég í möppuna /assets (þetta er algengt nafn á slíka möppu sem geymir svona gögn sem eru notuð). Mappan þarf að sjálfsögðu að vera staðsett á sama stað og forritið mitt.</p>
-<p><strong>image()</strong> Hér erum við að teikna myndina. Fallið tekur inn breytuna sem geymir myndina, hér mymd. Það tekur líka inn tvær tölur sem gefa staðsetningu myndarinnar, við notuðum hér hnitin á músinni.</p>
+<p><strong>image()</strong> Hér erum við að teikna myndina. Fallið tekur inn breytuna sem geymir myndina, hér letidyr. Það tekur líka inn tvær tölur sem gefa staðsetningu myndarinnar, við notuðum hér hnitin á músinni.</p>
 
 <p>Prófaðu að smella á næsta forrit með bendlinum, prófaðu svo líka að ýta á takka á lyklaborðinu:</p>
 

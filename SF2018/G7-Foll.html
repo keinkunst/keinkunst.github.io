@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Föll</title>
+    <!-- The style.css file allows you to change the look of your web pages.
+         If you include the next line in all your web pages, they will all share the same look.
+         This makes it easier to make new pages for your site. -->
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- this script only needs to get added once even if there are multiple widget instances -->
+    <script src="https://toolness.github.io/p5.js-widget/p5-widget.js"></script>
+  </head>
+  <body>
+  <div id="header">
+  <a href = "TOLV1AS.html">  <i class="fa fa-home fa-2x" aria-hidden="true"></i>     TÖLV1AS05 - Skapandi Forritun</a>
+  <div class="bar"></div>
+  </div>
+
+  <div id = "content">
+    <h1>Föll</h1>
+
+<h2>Að kalla á fall</h2>
+
+<p>Þú þekkir nú þegar þónokkuð af föllum í p5js og kannt að kalla á þau. </p>
+
+<p>Sum föll eru bara notuð til að gera eitthvað ákveðið:</p>
+<ul>
+<li><code>ellipse()</code>: Þetta fall teiknar sporbaug.</li>
+<li><code>fill()</code>: Þetta fall velur lit á allar fylltar teikningar sem koma á eftir.</li>
+<li><code>noStroke()</code>: Þetta fall tekur allar útlínur af.</li>
+</ul>
+
+<p>Önnur föll skila einhverju gildi, eins og tölu, sem við síðan vinnum með:</p>
+<ul>
+<li><code>random()</code>: Þetta velur slembitölu og skila henni. Svo við notum þetta fall í rauninni sem tölu.</li>
+</ul>
+
+<p>Sum föll taka inntök, önnur ekki. En þó þau taki ekki neitt inntak þá er alltaf hafður svigi á eftir nafninu á falli.
+
+
+<h2>Að skilgreina gefið fall</h2>
+
+<p>Í p5 eru þónokkur föll sem við köllum aldrei á sjálf en eru sjálkrafa keyrð við ákveðin skilyrði.</p>
+<p>Þú hefur hingað til bara skilgreint virkni þriggja ólíkra falla:</p>
+<ul>
+<li><code>setup()</code>: Þetta fall er keyrt í upphafi skriftunnar.</li>
+<li><code>draw()</code>: Þetta fall er keyrt á eftir setup(), endalaust, aftur og aftur.</li>
+<li><code>mousePressed()</code>: Þetta fall er bara keyrt þegar smellt er á músina.</li>
+</ul>
+
+<p>Fleiri svona föll eru til sem væri gaman að leika sér með seinna.</p>
+
+<h2>Að skilgreina þitt eigið fall</h2>
+
+<p>Við getum þó skilgreint okkar eigin föll og kallað á þau í okkar eigin skriftum.</p>
+
+<p>Það sem við erum að fara að gera hér er nákvæmlega það sama og var kallað Make a Block í Scratch</p>
+
+<script type="text/p5" data-preview-width="400" data-height="580">
+function setup() {
+  createCanvas(400,500);
+}
+
+function draw() {
+  background(255,200,0);
+  zoog();
+}
+
+// Teiknar geimveruna zoog
+function zoog(){
+  rectMode(CENTER);
+  // Teiknum búkinn
+  fill(236,36,94);
+  rect(200,200,40,100);
+  // Teiknum hausinn
+  fill(255);
+  ellipse(200,150, 80,80);
+  // Teiknum augun
+  fill(100);
+  ellipse (175,150, 20,40);
+  ellipse (225,150, 20,40);
+  // Teiknum fæturna
+  line (180, 250, 180, 300);
+  line (220, 250, 220, 300);
+}
+</script>
+
+<h2>Föll notuð til þess að skipta forriti í forritseiningar</h2>
+
+<p>Of notum við föll einfaldlega til þess að gera kóðann aðgengilegri og læsilegri. </p>
+
+<p><a href = "https://www.youtube.com/watch?v=wRHAitGzBrg&t=268s">Hér er myndband</a> þar sem Daniel Shiffman talar um þetta.</p>
+
+
+<h2>Föll með inntaki</h2>
+
+<p>Við getum búið til föll sem, eins og mörg föll sem við höfum verið að nota, taka inn breytur. </p>
+
+<p>Um þessi inntök höfum við þessi orð:<p>
+
+<ul>
+  <li><b>Stiki (e. Parameter):</b> Breyturnar sem eru notaðar í skilgreiningunni á fallinu eru kallaðar stikar.</li>
+  <li><b>Frumbreyta (e. Argument):</b> Tölurnar sem eru notaðar þegar kallað er á fallið.</li>
+</ul>
+
+
+
+<script type="text/p5" data-preview-width="400" data-height="480">
+function setup() {
+  createCanvas(400,400);
+  rectMode(CENTER);
+  background(255,200,0);
+}
+function draw() {
+  mynd(75,255);
+}
+
+// Teiknar einfalda mynd.
+// stærð: stjórnar stærð myndarinnar
+// litur: stjórnar litnum á myndinni.
+function mynd(stærð,litur){
+  noFill();
+  strokeWeight(2);
+  stroke(litur);
+  rect(200,200,stærð,stærð);
+  ellipse(200,200,stærð,stærð);
+}
+</script>
+
+<p>Hér eru sem sagt breyturnar <code>stærð</code> og <code>litur</code> <b>stikarnir</b> í fallinu.<p>
+<p>En <code>75</code> og <code>255</code> voru <b>frumbreyturnar</b>, tölurnar sem voru notaðar þegar kallað er á fallið.<p>
+
+  <p><i class="fa fa-remove fa-spin fa-fw"></i>  Bættu við línum í kóðann. Kallaðu á fallið mynd() tvisvar sinnum í viðbót með mismunandi frumbreytum og athugaðu hvað gerist.</p>
+
+  <p><i class="fa fa-remove fa-spin fa-fw"></i>  Prófaðu að teikna myndina endurtekið með forlykkju og breyta bæði stærð og lit í hverju skrefi.</p>
+
+<p><a href = "https://www.youtube.com/watch?v=zkc417YapfE&t=73s">Hér er myndband</a> þar sem Daniel Shiffman talar um stika og frumbreytur.</p>
+
+<script type="text/p5" data-preview-width="350" data-height="630">
+function setup() {
+  createCanvas(350,550);
+}
+function draw() {
+  background(255,200,0);
+  zoog(100,100,60);
+  zoog(mouseX,mouseY,100);
+  zoog(300,300,200);
+}
+
+// Teiknar geimveruna zoog
+// með miðju í punktinum (x,y)
+// Bukur: stjórnar lengdinni á búknum
+function zoog(x,y,bukur){
+  rectMode(CENTER);
+  // Teiknum búkinn
+  fill(236,36,94);
+  rect(x,y,40,bukur);
+  // Teiknum hausinn
+  fill(255);
+  ellipse(x,y - bukur/2, 80,80);
+  // Teiknum augun
+  fill(100);
+  ellipse (x - 25,y - bukur/2, 20,40);
+  ellipse (x + 25,y - bukur/2, 20,40);
+  // Teiknum fæturna
+  line (x - 20, y + bukur/2, x - 20, y + bukur/2 + 50);
+  line (x + 20, y + bukur/2, x + 20, y + bukur/2 + 50);
+}
+</script>
+
+
+<h2> Föll sem skila gildi </h2>
+
+<p>Sum föll skila gildi. Hér eru nokkur sem eru innbygð og notuð í reikningum:</p>
+
+<ul>
+<li><code>random()</code>: Þetta velur slembitölu og skila henni. Svo við notum þetta fall í rauninni sem tölu.</li>
+<li><code>abs()</code>: Finnur algildið (tölugildið) af inntakinu.</li>
+<li><code>sqrt()</code>: Finnur ferningsrótina af inntakinu.</li>
+<li><code>floor()</code>: Skilar næstu heiltölu fyrir neðan inntakið.</li>
+</ul>
+
+<p>Þessi föll sérðu að eru flest notuð í einhverskonar reikningum.</p>
+
+<p>Við getum búið til okkar eigin föll til þess að spara okkur vinnu. Ef við ætlum að reikna svipaða hluti aftur og aftur er gott að búa til fall sem reiknar fyrir okkur.</p>
+<p>Það er t.d. algengt að við viljum reikna út fjarlægðia á milli tveggja punkta. Búum til fall sem gerir það.</p>
+<p><code>return</code> er lykilorðið sem er notað til að segja fallinu hvaða tölu á að skila.
+
+
+
+  <script type="text/p5" data-preview-width="300" data-height="530">
+function setup() {
+  createCanvas(300,450);
+}
+function draw() {
+  background(fjarlægð(mouseX,mouseY,0,450));
+  if (fjarlægð(mouseX,mouseY,150,150) < 50){
+    fill(236,36,94);
+  }
+  else{
+  	fill(94,36,236);
+  }
+  ellipse(150,150,100,100);
+  fill(94,36,236);
+  ellipse(150,400,50,50);
+}
+
+// Reiknar fjarlægðina á milli punktanna
+// sem hafa hnitin (x1,y1) og (x2,y2)
+function fjarlægð(x1,y1,x2,y2){
+  var dist = sqrt((x1 - x2)*(x1 - x2) + (y1 - y2)*(y1 - y2));
+  return dist;
+}
+  </script>
+
+
+  <p><i class="fa fa-remove fa-spin fa-fw"></i>  Láttu neðri hringinn líka breytast eftir því hvort músin snertir hann.</p>
+  <p><i class="fa fa-remove fa-spin fa-fw"></i>  Prófaðu að gera bakgrunninn meira breytilegann. Þ.e. láttu litinn hafa þrjár frumbreytur, allar háðar fjarlægð músarinnar frá einhverjum punkti á skjánum.</p>
+
+
+  <p><a href = "https://www.youtube.com/watch?v=qRnUBiTJ66Y">Hér er myndband</a> þar sem Daniel Shiffman talar um stika og frumbreytur.</p>
+
+
+
+</div>
+
+  <div id="footer">
+  <div class="bar"></div>
+  <a href = "TOLV1AS.html">  <i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true"></i>     TÖLV1AS05 - Skapandi Forritun</a>
+  </div>
+
+  </body>
+</html>
