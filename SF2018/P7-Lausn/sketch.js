@@ -1,14 +1,14 @@
 
 function setup() {
-	createCanvas(500, 500);
+	createCanvas(900, 500);
 	rectMode(CENTER);
-	frameRate(10);
+	frameRate(0.5);
 }
 
 function draw() {
 	background(200,0,0);
-	AGN35(200,400, 50, 30, 50, 100);
-	AGN35(400,300, 70, 10, 100, 30);
+	AGN35(300,350, random(10,100), random(5,50), random(20,100), random(20,100));
+	AGN35(600,350, random(10,100), random(5,50), random(20,100), random(20,100));
 }
 
 function AGN35(x,y,haus,hals,bukurW,bukurH) {
