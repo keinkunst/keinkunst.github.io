@@ -64,29 +64,15 @@ function setup() {
 function draw() {
 	background(200,150,0);
   fill(255,200,0);
+  noStroke();
 	ellipse(300,300,500,500);
   // Ef hluturinn er nálgt miðjunni, þá hreyfir hann sig
   // Ef ekki þá stoppar hann og blikkar bara augunum.
-	if(fjarlægð(zoog1.x,zoog1.y,300,300) > 250){
-		zoog1.blink();
-	}
-	else {
-		zoog1.move();
-	}
-	zoog1.show();
-	if(fjarlægð(zoog2.x,zoog2.y,300,300) > 250){
-		zoog2.blink();
-	}
-	else {
-		zoog2.move();
-	}
+  zoog1.move();
+  zoog1.show();
+  zoog2.move();
   zoog2.show();
-	if(fjarlægð(zoog3.x,zoog3.y,300,300) > 250){
-		zoog3.blink();
-	}
-	else {
-		zoog3.move();
-	}
+  zoog3.move();
   zoog3.show();
 }
 
@@ -109,6 +95,8 @@ class Zoog{
   // Teiknar geimveruna zoog
   show(){
     rectMode(CENTER);
+    strokeWeight(1.5);
+    stroke(0);
     // Teiknum búkinn
     fill(236,36,94);
     rect(this.x,this.y,40,this.bukur);
@@ -135,6 +123,13 @@ class Zoog{
 			this.dir = random(0,2*PI);
 			this.speed = random(1,5);
 		}
+      if (fjarlægð(this.x,this.y,width/2,height/2) > 250){
+      	this.blink();
+        this.dir = atan((this.y - height/2)/(this.x-width/2));
+        if(this.x - width/2 > 0){
+        	this.dir = this.dir + PI;
+        }
+      }
 	}
 
   // Velur slembinn lit fyrir augun á zoog.
