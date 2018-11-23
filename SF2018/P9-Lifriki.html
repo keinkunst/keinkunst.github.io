@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>P8: Fígúra fær líf</title>
+    <title>P9: Lífríki</title>
     <!-- The style.css file allows you to change the look of your web pages.
          If you include the next line in all your web pages, they will all share the same look.
          This makes it easier to make new pages for your site. -->
@@ -20,60 +20,47 @@
   </div>
 
   <div id = "content">
-    <h1><i class="fa fa-cog fa-spin fa-fw"></i>P8: Fígúra fær líf</h1>
-
-    <p>Búðu til þinn eigin klasa. Þessi klasi á að lýsa fígúrunni þinni úr P6</p>
+    <h1><i class="fa fa-cog fa-spin fa-fw"></i>P9: Lífríki</h1>
 
 
-<ul>
-<li>Klasinn á að hafa aðferð sem teiknar fígúruna.</li>
-<li>Klasinn á að hafa aðferð sem hreyfir fígúruna, þú ræður hvernig. Gæti verið
-slembið, eða með ákveðnum hraða, eða þá stjórnað af spilaranum.</li>
-<li>Klasinn á að hafa breytur sem stjórna staðsetningu hans.</li>
-<li>Klasinn á að hafa a.m.k. þrjár breytur sem stjórna útlitinu.</li>
-</ul>
-
-<p>Í skriftunni sjálfri áttu að teikna a.m.k. þrjá hluti sem eru af þessum nýja klasa.
-</p>
+<p> Búðu til forrit sem uppfyllir eftirfarandi:</p>
 
 <ul>
-<li>Hlutirnir eiga að hegða sér eins en hver ólíkir í útliti.</li>
-<li>Í rammanum á að vera svæði (t.d. hringur í miðjunni) sem er teiknað inn.</li>
-<li>Þegar hlutirnir teljast einhvernveginn vera inná þessu svæði eiga þeir að
-  hegða sér öðruvísi á einhvern hátt.</li>
-<li>Svo klasinn ætti að hafa aðferð sem lýsir einhverri annari hegðun en grunnhreyfingunni.</li>
+<li>Vinnur með lista af hlutum af klasanum sem þú vannst með síðast.</li>
+<li>Allir hlutirnir í listanum skulu hreyfa sig og sjást á skjánum.</li>
+<li>Notandinn getur haft áhrif á listann. t.d. búið til eða eytt hlutum með músasmellum.</li>
 </ul>
 
+<p>Hér er dæmi um lausn með Zoog. Notandinn getur smellt á geimverurnar til að eyða þeim.</p>
 
-<h2>Mín lausn</h2>
 
-<p>Ég bjó til Zoog klasa og notaði hann til það teikna þessar þrjár geimverur.</p>
-<p>Þú getur notað þessa lausn til viðmiðunnar í þinni vinnu.</p>
-
-<script type="text/p5" data-preview-width="600" data-height="680">
-var zoog1, zoog2, zoog3;
+<script type="text/p5" data-preview-width="600" data-height="680">var zoogs = [];
 
 function setup() {
   createCanvas(600, 600);
-  // Búum til þrjá zoog hluti.
-  zoog1 = new Zoog(200,400,100);
-  zoog2 = new Zoog(300,300,75);
-  zoog3 = new Zoog(400,300,150);
+  // Búum til hundrað zoog hluti.
+  for (var i = 0; i < 100; i = i+1){
+    zoogs[i] = new Zoog(random(200,400),random(100,400),random(50,200));
+  }
 }
 
 function draw() {
-  background(200,150,0);
+	background(200,150,0);
   fill(255,200,0);
-  noStroke();
-  ellipse(300,300,500,500);
-  // Ef hluturinn er nálgt miðjunni, þá hreyfir hann sig
-  // Ef ekki þá stoppar hann og blikkar bara augunum.
-  zoog1.move();
-  zoog1.show();
-  zoog2.move();
-  zoog2.show();
-  zoog3.move();
-  zoog3.show();
+	ellipse(300,300,500,500);
+  // Teiknum og hreyfum alla Zoog kallana okkar
+  for (var i = 0; i < zoogs.length; i = i+1){
+  	zoogs[i].move();
+  	zoogs[i].show();
+  }
+}
+
+function mousePressed(){
+  for (var i = zoogs.length-1; i >= 0; i = i-1){
+    if(fjarl(zoogs[i].x,zoogs[i].y,mouseX,mouseY) < 50){
+		    zoogs.splice(i,1);
+	  }
+  }
 }
 
 // Klasinn Zoog
@@ -87,16 +74,14 @@ class Zoog{
     this.x = x;
     this.y = y;
     this.bukur = bukur;
-    this.dir = random(0,2*PI);
-    this.speed = random(0,5);
-    this.eyeColor = color(100,100,100);
+		this.dir = random(0,2*PI);
+		this.speed = random(1,3);
+		this.eyeColor = color(100,100,100);
   }
 
   // Teiknar geimveruna zoog
   show(){
     rectMode(CENTER);
-    strokeWeight(1.5);
-    stroke(0);
     // Teiknum búkinn
     fill(236,36,94);
     rect(this.x,this.y,40,this.bukur);
@@ -123,7 +108,7 @@ class Zoog{
 			this.dir = random(0,2*PI);
 			this.speed = random(1,5);
 		}
-      if (fjarlægð(this.x,this.y,width/2,height/2) > 250){
+      if (fjarl(this.x,this.y,width/2,height/2) > 250){
       	this.blink();
         this.dir = atan((this.y - height/2)/(this.x-width/2));
         if(this.x - width/2 > 0){
@@ -140,15 +125,30 @@ class Zoog{
 
 // Skilar fjarlægðinni á milli punktanna
 // (x1,y1) og (x2,y2).
-function fjarlægð(x1,y1,x2,y2){
+function fjarl(x1,y1,x2,y2){
   var dist = sqrt((x1 - x2)*(x1 - x2) + (y1 - y2)*(y1 - y2));
   return dist;
 }
-
 </script>
 
 
 
+<h2>P9b: Leikur í listum</h2>
+
+<p>Gerum að lokum eitthvað sniðugt.</p>
+
+<p>Þú getur:</p>
+
+<ul>
+<li>Búið til forrit sem sýnir tvo ólika lista með ólíkum hlutum, getur hugsað etta sem beina viðbót við P9.</li>
+<li>Búið til forrit sem fer ennþá lengra með hugmyndina um lista og gagnvirkni.
+Gæti bæði bætt við í listann og tekið úr listanum samkvæmt einhverjum ákveðnum skilyrðum.</li>
+</ul>
+
+<p>Hér er til dæmis hugmynd að sápukúluverkefni sem hefur verið farið með aðeins lengra.</p>
+<p>Prófaðu að halda inni músinni og draga yfir sápukúlurnar.</p>
+
+<iframe src="P9b-Lausn/index.html" width="900" height ="500" scrolling = "no"></iframe>
   </div>
 
 

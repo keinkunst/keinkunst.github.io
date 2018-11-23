@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Listar</title>
+    <!-- The style.css file allows you to change the look of your web pages.
+         If you include the next line in all your web pages, they will all share the same look.
+         This makes it easier to make new pages for your site. -->
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- this script only needs to get added once even if there are multiple widget instances -->
+    <script src="https://toolness.github.io/p5.js-widget/p5-widget.js"></script>
+  </head>
+  <body>
+  <div id="header">
+  <a href = "TOLV1AS.html">  <i class="fa fa-home fa-2x" aria-hidden="true"></i>     TÖLV1AS05 - Skapandi Forritun</a>
+  <div class="bar"></div>
+  </div>
+
+  <div id = "content">
+
+
+    <h1>Listar</h1>
+
+<h2>Hvað er listi</h2>
+
+<p>Listi (e. array) er hlutur í javascrit sem geymir hóp af breytum/hlutum.</p>
+
+
+<p><a href = "https://www.youtube.com/watch?v=VIQoUghHSxU">Hér er myndband</a>
+  þar sem Daniel Shiffman talar um hvað listar eru.</p>
+
+
+
+<script type="text/p5" data-preview-width="200" data-height="380">
+var words = ["kleina", "búr", "viðbein", "grafa"];
+
+function setup(){
+  createCanvas(200,300);
+  textAlign(CENTER);
+	textSize(32);
+}
+
+function draw(){
+  background(255,200,0);
+  text(words[1],100,150);
+}
+</script>
+
+<p>Við búum lista til með því að skrifa stökin á milli [] tákna, með kommum á milli. </p>
+
+<p>Við sækjum í listann með því að nota viðkomandi tilvísunarnúmer. Skipunin
+  words[1] sækir stak númer 1 í listanum words</p>
+
+  <p><i class="fa fa-remove fa-spin fa-fw"></i> Hvaða gildi þarftu að setja í
+  hornklofann til þess að forritið prenti "grafa" á skjáinn?</p>
+  <p><i class="fa fa-remove fa-spin fa-fw"></i> Hvaða gildi þarftu að setja í
+  hornklofann til þess að forritið prenti "kleina" á skjáinn?</p>
+  <p><i class="fa fa-remove fa-spin fa-fw"></i> Prófaðu að bæta stökum í listann
+    og að prenta þau á skjáinn með því að kalla á viðkomandi stað
+    í listanum.</p>
+
+<p>Það er algengt að við viljum fara í gegnum allan listann með einhverju móti
+og því nota hlaupabeytu til þess að vísa í sætin í listanum.</p>
+
+<script type="text/p5" data-preview-width="200" data-height="430">
+var words = ["kleina", "búr", "viðbein", "grafa"];
+var i = 0;
+
+function setup(){
+  createCanvas(200,350);
+  textAlign(CENTER);
+	textSize(32);
+}
+
+function draw(){
+  background(255,200,0);
+  text(words[i],100,150);
+}
+
+function mousePressed() {
+	i++;
+}
+</script>
+
+<p>Hefurðu kannski ekki séð skipunina i++ áður? Hún geri nákvæmlega það sama og i = i+1.</p>
+
+
+<p><i class="fa fa-remove fa-spin fa-fw"></i>Smelltu með músinni, þá ætti
+  alltaf að koma næsta orð í listanum.</p>
+
+  <p> Þú ættir að taka eftir vandamáli. Þegar hlaupabreytan i fer út fyrir mörkin á
+  listanum kemur upp ERROR.</p>
+
+  <p>Þegar við erum að fara í gegnum lista, verðum við að passa okkur sjálf á
+  því að við séum ekki að reyna að spyrja um sæti í lista sem ekki er til.</p>
+
+<p><i class="fa fa-remove fa-spin fa-fw"></i>Bættu inn í mousePressed() við kóðabrotinu
+<code>
+if (i == 4){
+  i = 0;
+}
+
+</code>
+Þetta ætti að laga villuna og láta listann aftur byrja upp á nýtt.
+</p>
+
+<p><i class="fa fa-remove fa-spin fa-fw"></i>Bættu tveimur stökum í listann og
+gakktu þannig frá kóðanum að þau prentist líka á skjáinn þegar flett er í gegnum orðin.</p>
+
+
+<h2>.length</h2>
+
+
+<p><a href = "https://www.youtube.com/watch?v=RXWO3mFuW-I">Hér er myndband</a>
+  þar sem Daniel Shiffman notar lista og lykkjur.</p>
+  <p>Athugið að hlutir hér eru aðeins öðruvísi (og asnalegri) en hlutirnir okkar.</p>
+
+
+<p>Þegar við notum lista kemur fyrir að við bætum við hann eða tökum hluti úr
+því er heppilegra að geta vísað beint í lengd lisans sjálfs, frekar en nota ákveðna tölu.</p>
+
+<p><i class="fa fa-remove fa-spin fa-fw"></i>Í dæminu að ofan er betra að nota
+words.length og þá fáum við alltaf viðeigandi lengd fyrir listann.</p>
+
+<script type="text/p5" data-preview-width="200" data-height="430">
+var words = ["kleina", "búr", "viðbein", "grafa"];
+
+function setup(){
+  createCanvas(200,350);
+  textAlign(CENTER);
+	textSize(32);
+}
+
+function draw(){
+  background(255,200,0);
+  for(var i = 0; i < words.length; i++){
+    text(words[i],100,50+ 32*i);
+  }
+}
+</script>
+
+<p><i class="fa fa-remove fa-spin fa-fw"></i>Prófaðu að bæta stökum í listann
+eða fjarlægja eins og þig listir. Sjáðu að núna fáum við alltaf allan listann og
+fáum ekki villu.</p>
+
+
+<h2>Listi af hlutum</h2>
+
+
+
+<p><a href = "https://www.youtube.com/watch?v=fBqaA7zRO58">Hér er myndband</a>
+þar sem Daniel Shiffman notar lista af hlutum.</p>
+
+<p>Við þurfum ekki bara að hafa einfaldar breytur í listunum okkar, við getum
+sett hvers konar hluti sem við viljum.</p>
+<p>Við megum ekki gleyma að nota lykilorðið new. </p>
+
+<p>Búum til lista af sápukúlum og teiknum þær allar. </p>
+
+<script type="text/p5" data-preview-width="400" data-height="780">
+var bubbles = [];
+
+function setup() {
+  createCanvas(400,700);
+  for (var i = 0; i < 10; i++){
+    bubbles.push(new Bubble(100,100));
+  }
+}
+
+function draw() {
+  background(255,200,0);
+
+	for (var i = 0; i < bubbles.length; i++){
+		bubbles[i].move();
+		bubbles[i].show();
+	}
+}
+
+// Býr til sápukúlu, sem flýtur stjórnlaust um skjáinn.
+class Bubble{
+  // Smíðar nýja sápukúlu og gefur henni allar þarfar breytur
+  constructor(x , y) {
+    this.x = x;
+    this.y = y;
+  }
+	// Hreyfir sápukúluna til
+  move() {
+    this.x = this.x + random(-1,1);
+    this.y = this.y + random(-1,1);
+  }
+	// Teiknar sápukúluna
+  show() {
+    stroke(255);
+    strokeWeight(3);
+    noFill();
+    ellipse(this.x,this.y,20,20);
+  }
+}
+</script>
+
+<p><i class="fa fa-remove fa-spin fa-fw"></i>Það er kannski ekki mjög áhugavert
+að láta allar sápukúlurnar byrja á sama stað. Láttu sápukúlurnar hverja og eina
+byrja á slembnum stað á skjánum.</p>
+
+
+
+<p><i class="fa fa-remove fa-spin fa-fw"></i>Prófaðu að breyta fjölda
+sápukúlnanna eins og þú vilt. Hvað þorirðu að hafa margar?</p>
+
+
+
+
+
+<h2>push()</h2>
+
+<p>Til þess að bæta hlutum við lista notum við push() aðferðina.</p>
+
+<script type="text/p5" data-preview-width="200" data-height="430">
+var words = ["kleina", "búr", "viðbein", "grafa"];
+
+function setup(){
+  createCanvas(200,350);
+  textAlign(CENTER);
+	textSize(32);
+}
+
+function draw(){
+  background(255,200,0);
+  for(var i = 0; i < words.length; i++){
+    text(words[i],100,50+ 32*i);
+  }
+}
+
+function mousePressed() {
+  words.push("orð")
+}
+</script>
+
+
+<p>Listinn gæti byrjað tómur hjá okkur, og svo notum við bara push()
+til þess að bæta við listann. </p>
+
+<script type="text/p5" data-preview-width="400" data-height="780">
+var bubbles = [];
+
+function setup() {
+  createCanvas(400,700);
+}
+
+function draw() {
+  background(255,200,0);
+
+	for (var i = 0; i < bubbles.length; i++){
+		bubbles[i].move();
+		bubbles[i].show();
+	}
+}
+
+function mouseDragged(){
+  bubbles.push(new Bubble(mouseX,mouseY));
+}
+
+// Býr til sápukúlu, sem flýtur stjórnlaust um skjáinn.
+class Bubble{
+  // Smíðar nýja sápukúlu og gefur henni allar þarfar breytur
+  constructor(x , y) {
+    this.x = x;
+    this.y = y;
+  }
+	// Hreyfir sápukúluna til
+  move() {
+    this.x = this.x + random(-1,1);
+    this.y = this.y + random(-1,1);
+  }
+	// Teiknar sápukúluna
+  show() {
+    stroke(255);
+    strokeWeight(3);
+    noFill();
+    ellipse(this.x,this.y,20,20);
+  }
+}
+</script>
+
+
+<p>Í næsta dæmi lék ég mér að því að búa til marga bolta þegar notandinn
+smellir á skjaínn.</p>
+
+<script type="text/p5" data-preview-width="400" data-height="780">
+var boltar = [];
+
+function setup() {
+  createCanvas(400,700);
+}
+
+function draw() {
+  background(255,200,0);
+  // Hreyfum og teiknum alla boltana sem eru í boltar listanum
+	for (var i = 0; i < boltar.length; i++){
+    boltar[i].show();
+		boltar[i].move();
+  }
+}
+
+// Þegar smellt er á músina eru búnir til 5 nýjir boltar.
+function mousePressed() {
+	litur = color (random(255),random(255),random(255));
+	for (var i = 0; i < 5; i++){
+		boltar.push(new Ball(mouseX,mouseY,litur));
+  }
+}
+
+// Býr til bolta sem fer um skjáinn+
+// og skoppar af mörkum hans
+class Ball{
+  // Býr til nýjann bolta með miðju í (x,y)
+	// litur: stjórnar litnum á boltanum
+  constructor(x,y,litur) {
+    this.x = x;
+    this.y = y;
+		this.xSpeed = random(-2,2);
+		this.ySpeed = random(-2,2);
+		this.litur = litur;
+  }
+	// Hreyfir sápukúluna til
+  move() {
+    this.x = this.x + this.xSpeed;
+    this.y = this.y + this.ySpeed;
+		this.bounce();
+  }
+	// Lætur boltann skoppa af veggjunum
+	bounce() {
+    if(this.x < 0 || this.x > width){
+			this.xSpeed = -this.xSpeed;
+		}
+    if(this.y < 0 || this.y > height){
+			this.ySpeed = -this.ySpeed;
+		}
+  }
+	// Teiknar boltann
+  show() {
+    noStroke(0);
+    fill(this.litur);
+    ellipse(this.x,this.y,20,20);
+  }
+}
+</script>
+
+<p><i class="fa fa-remove fa-spin fa-fw"></i>Láttu fleiri bolta birtast þegar
+  notandinn smellir.</p>
+
+<p>Það kemur að því að boltarnir verða of margir og við erum að láta vafrann
+  reikna fullmikið, þess vegna væri sniðugt að takmarka einhvernveginn
+fjölda hluta í listanum og fjarlægja t.d. þá elstu.</p>
+
+
+
+<h2>splice()</h2>
+
+<p>Við getum notað splice() til þess að fjarlægja hluti úr lista.</p>
+
+
+<p><a href = "https://www.youtube.com/watch?v=tA_ZgruFF9k">Hér er myndband</a>
+  þar sem Daniel Shiffman talar um hvernig má fjarlægja hluti úr listum.</p>
+
+
+
+
+<p>Splice tekur inn tvær tölur, í fyrsta lagi í hvaða sæti á að taka gildi úr
+  listanum (við notum hér 0 því við viljum taka út elsta gildið)</p>
+  <p>Hin talan segir til um hversu mörg gildi við ætlum að fjarlægja úr
+  listanum (yfirleitt ætlum við bara að fjarlægja einn hlut, svo við setjum 1).</p>
+
+<script type="text/p5" data-preview-width="200" data-height="480">
+var words = ["kleina", "búr", "viðbein", "grafa"];
+
+function setup(){
+  createCanvas(200,400);
+  textAlign(CENTER);
+	textSize(32);
+}
+
+function draw(){
+  background(255,200,0);
+  for(var i = 0; i < words.length; i++){
+    text(words[i],100,50+ 32*i);
+  }
+}
+
+function mousePressed() {
+  words.push("orð")
+}
+
+function keyPressed() {
+  words.splice(0,1);
+}
+</script>
+
+<p>Hérna notum við slice til þess að taka alltaf út elsta hlutinn og takmmörkum
+þannig lengd listans.</p>
+
+
+<script type="text/p5" data-preview-width="400" data-height="780">
+var bubbles = [];
+
+function setup() {
+  createCanvas(400,700);
+}
+
+function draw() {
+  background(255,200,0);
+
+	for (var i = 0; i < bubbles.length; i++){
+		bubbles[i].move();
+		bubbles[i].show();
+	}
+}
+
+function mouseDragged(){
+  bubbles.push(new Bubble(mouseX,mouseY));
+
+	if(bubbles.length > 30){
+		bubbles.splice(0,1);
+	}
+}
+
+// Býr til sápukúlu, sem flýtur stjórnlaust um skjáinn.
+class Bubble{
+  // Smíðar nýja sápukúlu og gefur henni allar þarfar breytur
+  constructor(x , y) {
+    this.x = x;
+    this.y = y;
+  }
+	// Hreyfir sápukúluna til
+  move() {
+    this.x = this.x + random(-1,1);
+    this.y = this.y + random(-1,1);
+  }
+	// Teiknar sápukúluna
+  show() {
+    stroke(255);
+    strokeWeight(3);
+    noFill();
+    ellipse(this.x,this.y,20,20);
+  }
+}
+</script>
+
+
+<p>Ef fjarlægja skal hlut úr lista þegar verið er að ýtra í gegnum
+listann þarf að passa sig. </p>
+<p>Það sem gæti komið upp er að þú breytir listanum þannig að lykkjan
+  geti ekki klárast eðlilega.</p>
+<p>Þegar t.d. á að eyða hlutum úr lista eftir ákveðnu skilyrði
+er algeng lausn að ýtra í gegnum listann afturábak:</p>
+
+
+<script type="text/p5" data-preview-width="400" data-height="780">
+var bubbles = [];
+
+function setup() {
+  createCanvas(400,700);
+	for (var i = 0; i < 100; i++){
+		bubbles[i] = new Bubble(random(width),random(height));
+	}
+}
+
+function draw() {
+  background(255,200,0);
+
+	for (var i = 0; i < bubbles.length; i++){
+		bubbles[i].move();
+		bubbles[i].show();
+	}
+}
+
+function mousePressed(){
+  // Förum í gegnum bubbles afturábak.
+  for (var i = bubbles.length-1; i >= 0; i = i-1){
+    // Eyðum kúlu ef smellt er á hana.
+    if(fjarl(bubbles[i].x,bubbles[i].y,mouseX,mouseY) < 10){
+		    bubbles.splice(i,1);
+	  }
+  }
+}
+
+// Skilar fjarlægðinni á milli punktanna
+// (x1,y1) og (x2,y2).
+function fjarl(x1,y1,x2,y2){
+  var dist = sqrt((x1 - x2)*(x1 - x2) + (y1 - y2)*(y1 - y2));
+  return dist;
+}
+
+// Býr til sápukúlu, sem flýtur stjórnlaust um skjáinn.
+class Bubble{
+  // Smíðar nýja sápukúlu og gefur henni allar þarfar breytur
+  constructor(x , y) {
+    this.x = x;
+    this.y = y;
+  }
+	// Hreyfir sápukúluna til
+  move() {
+    this.x = this.x + random(-1,1);
+    this.y = this.y + random(-1,1);
+  }
+	// Teiknar sápukúluna
+  show() {
+    stroke(255);
+    strokeWeight(3);
+    noFill();
+    ellipse(this.x,this.y,20,20);
+  }
+}
+</script>
+
+<p><a href = "https://www.youtube.com/watch?v=TaN5At5RWH8">Hér er myndband</a>
+  þar sem Daniel Shiffman talar um gagnvirkni með listum og músinni.</p>
+
+
+
+</div>
+
+  <div id="footer">
+  <div class="bar"></div>
+  <a href = "TOLV1AS.html">  <i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true"></i>     TÖLV1AS05 - Skapandi Forritun</a>
+  </div>
+
+  </body>
+</html>
