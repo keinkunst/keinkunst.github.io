@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Breytur</title>
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- this script only needs to get added once even if there are multiple widget instances -->
+    <script src="https://toolness.github.io/p5.js-widget/p5-widget.js"></script>
+  </head>
+  <body>
+  <div id="header">
+  <a href = "TOLV1AS.html">  <i class="fa fa-home fa-2x" aria-hidden="true"></i>     TÖLV1AS05 - Skapandi Forritun</a>
+  <div class="bar"></div>
+  </div>
+
+
+
+  <div id = "content">
+
+    <h1>setup() og draw() </h1>
+<p>Við ræddum það síðast að setup() getum við hugsað um sem græna fánann í Scratch, þ.e. það sem er í setup() er það sem forritið framkvæmir fyrst.</p>
+
+
+<p>Í Scratch gerðist það stundum að við höfðum margar lykkjur sem voru keyrðar aftur og aftur endalaust, forever lykkjur. Í almennri forritun er þetta ómögulegt, því forritið geri bara eitt í einu, svo í mesta lagi er hægt að hafa eina óendanlega lykkju ef forritið á að virka eðlilega. </p>
+
+<p>Það sem er inni í draw() er sjálfkrafa keyrt aftur og aftur, svo það verður eina "forever"-lykkjan okkar. Ef forritið á á einhvern hátt að vera lifandi, þ.e. myndin að breytast til dæmis, þurfum við að framkvæma teikninguna inni í draw().</p>
+
+
+<p>Reyndu að spá fyrir um hvað þetta forrit gerir áður en þú keyrir það:</p>
+<script type="text/p5" data-preview-width="200" data-height="280">
+function setup() {
+  createCanvas(200, 200);
+  background(255);
+  fill(255,0,0);
+  ellipse(random(0,200), random(0,200), 10,10);
+}
+</script>
+
+<p>Prófaðu að keyra forritið aftur og aftur og sjáðu að útkoman er ekki alltaf eins.</p>
+
+<p>Oft viljum við nota stærðir sem valdar eru að handahófi. Til þess notum við fallið
+    <a href="https://p5js.org/reference/#/p5/random">random() </a></p>
+
+
+
+<h2>Draw()</h2>
+
+<p>Nú skulum við skrifa mjög líkan kóða, nema setjum hluta inn í <code>draw()</code></p>
+
+<p>Reyndu að spá fyrir um hvað þetta forrit gerir ólíkt hinu áður en þú keyrir það. Prófaðu að smella á Play nokkrum sinnum.</p>
+
+<script type="text/p5" data-preview-width="200" data-height="280">
+function setup() {
+  createCanvas(200, 200);
+  background(255);
+  fill(255,0,0);
+}
+
+function draw() {
+  ellipse(random(0,200), random(0,200), 10,10);
+}
+</script>
+
+
+<p>Oftast viljum við ekki teikna myndir ofan á hvorri annari, heldur teikna nýja mynd í hverjum ramma. Prófaðu að færa <code>background(255);</code> inn í <code>draw()</code> Reyndu að spá fyrir um hvað breytist áður en þú prófar.</p>
+
+<p>Stundum keyrist forritið of hratt til þess að það sjáist almennilega hvað gerist. Við notum þá skipunina <a href = "https://p5js.org/reference/#/p5/frameRate"><code>frameRate(fps);</code></a> til þess að stjórna því hversu oft <code>draw()</code> er keyrð á hverri sekúndu.  Prófaðu bæta skipuninni <code>frameRate(10);</code> inn í <code>setup()</code></p>
+
+
+
+
+    <h2>Flóknari form</h2>
+    <p>Hægt er að búa til ný form með beginShape/endShape skipununum. Allir punktarnir sem að skilgreina formið eru tilgreindir með skipuninni vertex. Hér fyrir neðan er t.d. teiknuð stjarna með miðpunkt í (100,150).</p>
+    <script type="text/p5" data-preview-width="200" data-height="380">
+    function setup() {
+      createCanvas(200, 300);
+      noStroke();
+    }
+
+    function draw() {
+      background(209, 255, 45);
+
+      //teiknaStjörnu
+      beginShape();
+      fill(155, 92,0);
+      vertex(100-50,150);
+      vertex(100-10, 150-10);
+      vertex(100,150-50);
+      vertex(100+10,150-10);
+      vertex(100+50,  150);
+      vertex(100+10,150+10);
+      vertex(100,150+50);
+      vertex(100-10, 150+10);
+      endShape();
+    }
+    </script>
+
+
+
+  </div>
+
+  <div id="footer">
+  <div class="bar"></div>
+  <a href = "TOLV1AS.html">  <i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true"></i>     TÖLV1AS05 - Skapandi Forritun</a>
+  </div>
+
+
+  </body>
+</html>
