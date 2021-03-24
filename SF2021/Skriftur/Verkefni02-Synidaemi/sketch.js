@@ -7,10 +7,7 @@ function setup() {
 }
 
 function draw() {
-  for(var x = 10; x < width; x = x+20){
-    fill(random(180,360),75,100);
-    for(var y = 10; y < height; y = y+20){
-        ellipse(x, y, 15, 15);
-    }
-  }
+  fill(random(255), 215,0);
+  ellipse(200,200,50,50);
+  fill (0,255,255);
 }
