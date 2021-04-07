@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Verkefni03: Andlit</title>
+    <title>Verkefni03: Fígúra</title>
     <!-- The style.css file allows you to change the look of your web pages.
          If you include the next line in all your web pages, they will all share the same look.
          This makes it easier to make new pages for your site. -->
@@ -20,36 +20,47 @@
   </div>
 
   <div id = "content">
-    <h1><i class="fa fa-cog fa-spin fa-fw"></i> Verkefni03: Andlit</h1>
+    <h1><i class="fa fa-cog fa-spin fa-fw"></i> Verkefni03: Fígúra</h1>
 
-    <p>Teikna skal fígúru með kóða sem notar breytur sem stýra útliti hennar. Notið kóðabútinn neðst í sýnikóðanum til þess að láta endurstilla breyturnar í hvert sinn sem músinni er smellt. Dæmi um einfalda lausn gæti verið að teikna andlit:</p>
+    <p>Teikna skal fígúru með kóða sem notar breytur sem stýra útliti hennar. Notið kóðabútinn neðst í sýnikóðanum til þess að láta endurstilla breyturnar í hvert sinn sem músinni er smellt.</p>
 
+    <p>Skriftan skal uppfylla eftirfarandi:</p>
+    <ul>
+      <li>Teikna á einhverja greinilega fígúrur.</li>
+      <li>Fígúran heldur formi sýnu en fylgir músarbendlinum á skjánum. Nota þarf breyturnar mouseX og mouseY til þess.</li>
+      <li>A.m.k. þrjár ólíkar breytur stjórna útliti fígúrunnar með greinilegum hætti.</li>
+      <li>Þegar smett er á músartakkann fá breyturnar ný gildi, valin að handahófi, og útlit fígúrunnar breytist.</li>
+    </ul>
 
-    <script type="text/p5" data-preview-width="300" data-height="380">
-var eyeSize = 20;
-var faceWidth = 100;
-var faceHeight = 150;
-var x = 150;
-var y = 150;
+    <p>Hér sést dæmi um lausn þar sem geimveran ZOOG </p>
 
-function setup(){
-  createCanvas (300,300);
-}
+    <script type="text/p5" data-preview-width="300" data-height="550">
+    var bukur = 100;
 
-function draw(){
-  background(180);
-  ellipse(x, y, faceWidth, faceHeight);
+    function setup() {
+      createCanvas(350,550);
+      rectMode(CENTER);
+    }
+    function draw() {
+      background(255,200,0);
+      // Teiknum búkinn
+      fill(236,36,94);
+      rect(mouseX,mouseY,40,bukur);
+      // Teiknum hausinn
+      fill(255);
+      ellipse(mouseX,mouseY - bukur/2, 80,80);
+      // Teiknum augun
+      fill(100);
+      ellipse (mouseX - 25,mouseY - bukur/2, 20,40);
+      ellipse (mouseX + 25,mouseY - bukur/2, 20,40);
+      // Teiknum fæturna
+      line (mouseX - 20, mouseY + bukur/2, mouseX - 20, mouseY + bukur/2 + 50);
+      line (mouseX + 20, mouseY + bukur/2, mouseX + 20, mouseY + bukur/2 + 50);
+    }
 
-  //.....kóði sem staðsetur augun m.v. x, y, faceWidth og faceHeight ætti að koma hér.
-
-}
-
-function mousePressed(){
-  //Í hvert sinn sem músinni er smellt fá breyturnar ný gildi.
-  faceWidth  = random(75,  150);
-  faceHeight = random(100, 200);
-  eyeSize    = random(10,  30);
-}
+    function mousePressed() {
+    	bukur = random (50,150);
+    }
     </script>
 
 
