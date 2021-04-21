@@ -25,8 +25,8 @@
         <p>Búið til leik, þar sem bolta (hvernig sem hann svo er í laginu) er haldið á lofti.</p>
 
 <script type="text/p5" data-preview-width="400" data-height="580">
-var xBolti = 100;
-var yBolti = 100;
+var boltiX = 100;
+var boltiY = 100;
 var hradiX = 5;
 var hradiY = -6;
 var boltiStaerd = 20;
@@ -46,19 +46,19 @@ function setup() {
 function draw() {
   background(255,200,0);
 	// Reikna ný hnit út frá hraða boltans:
-  xBolti = xBolti + hradiX;
-  yBolti = yBolti + hradiY;
+  boltiX = boltiX + hradiX;
+  boltiY = boltiY + hradiY;
 	// Athuga hvort boltinn snertir vegginn hægra megin:
-  if ((xBolti > width-boltiStaerd/2))  {
+  if ((boltiX > width-boltiStaerd/2))  {
     hradiX = hradiX * -1;
   }
   	// Athuga hvort boltinn snertir þakið
-  if ((yBolti < boltiStaerd)) {
+  if ((boltiY < boltiStaerd)) {
     hradiY = hradiY * -1;
   }
 	// Teikna boltann
   fill(236,36,94);
-  rect(xBolti, yBolti, boltiStaerd, boltiStaerd);
+  rect(boltiX, boltiY, boltiStaerd, boltiStaerd);
 	// Teikna spaðann
   fill(3,123,227);
   rect(mouseX,spadiY ,spadiBreidd,spadiThykkt);
