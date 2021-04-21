@@ -28,7 +28,7 @@
 var xBolti = 100;
 var yBolti = 100;
 var hradiX = 5;
-var hradiY = 11;
+var hradiY = -6;
 var boltiStaerd = 20;
 var stig = 0;
 var spadiBreidd = 150;
@@ -56,17 +56,14 @@ function draw() {
   if ((yBolti < boltiStaerd)) {
     hradiY = hradiY * -1;
   }
-	// Athuga hvort bolti snertir spaða:
-	// abs() táknar algildi/tölugildi
-  if(abs(spadiY - yBolti) < boltiStaerd/2 + spadiThykkt/2 && abs(mouseX - xBolti) < boltiStaerd/2 + spadiBreidd/2){
-    	hradiY = hradiY * -1;
-  }
 	// Teikna boltann
   fill(236,36,94);
   rect(xBolti, yBolti, boltiStaerd, boltiStaerd);
 	// Teikna spaðann
-  fill(3,127,223);
+  fill(3,123,227);
   rect(mouseX,spadiY ,spadiBreidd,spadiThykkt);
+  fill (0);
+  ellipse(mouseX, spadiY, 10,10);
 	// Teikna stigin
   fill(0);
   text("Stig: " + stig,10,20);
@@ -89,6 +86,7 @@ function draw() {
           <li>Spaðinn gæti breytt um lögun í spiluninni.</li>
           <li>Aðrir hlutir gætu birst sem á að ná með boltanum, eða spaðanum.</li>
           <li>Boltinn gæti farið hraðar með tímanum.</li>
+          <li>Hægt að bæta við öðrum hlutum sem boltinn skoppar af, eins og t.d. í kúluspili (e. Pinball).</li>
           <li>Spilarinn getur breytt hraða og/eða stefnu boltans með spaðanum einhvernveginn, og stjórnað þannig ferð hans betur. Veltu því t.d. hvernig er dæmigert að þetta gerist í leikjum eins og Pong og Breakout?</li>
           <li>Hægt að fara í tveggja manna (eins og í <a href = "http://www.ponggame.org/">Pong</a>). Þá ætti hinum spaðanum að vera stjórnað með lyklaborðinu.</li>
         </ul>
