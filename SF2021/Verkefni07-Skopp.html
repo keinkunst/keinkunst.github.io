@@ -56,6 +56,11 @@ function draw() {
   if ((boltiY < boltiStaerd)) {
     hradiY = hradiY * -1;
   }
+  // Athuga hvort bolti snertir spaða:
+  if(abs(spadiY - y) < boltiStaerd/2 + spadiThykkt/2 && abs(mouseX - x) < boltiStaerd/2 + spadiBreidd/2){
+    hradiY = hradiY * -1;
+    stig = stig + 1;
+  }
 	// Teikna boltann
   fill(236,36,94);
   rect(boltiX, boltiY, boltiStaerd, boltiStaerd);
