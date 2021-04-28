@@ -31,53 +31,85 @@
 
     <p>Hér eru lausnir þar sem ég nota mína fígúru, geimveruna Zoog:</p>
   <script type="text/p5" data-preview-width="300" data-height="600">
-var zoogX;
-var zoogY;
-var zoogBukur = 100;
-var hradiX;
-var hradiY;
+  var zoogX = 10;
+  var zoogY = 10;
+  var zoogBukur = 100;
+  var hradiX = 5;
+  var hradiY = 3;
 
-function setup() {
-  createCanvas(350,550);
-}
-function draw() {
-  background(255,200,0);
-  zoogX = zoogX + hradiX;
-  zoogY = zoogY + hradiY;
-  if (abs(zoogX - width/2)> width/2){
-    hradiX = -hradiX;
-    zoogBukur = random (50;200);
+  function setup() {
+    createCanvas(400,550);
   }
-  if (abs(zoogY - height/2)> height/2){
-    hradiY = -hradiY;
-    zoogBukur = random (50;200);
+  function draw() {
+    background(255,200,0);
+    zoogX = zoogX + hradiX;
+    zoogY = zoogY + hradiY;
+    if (abs(zoogX - width/2)> width/2){
+      hradiX = -1*hradiX;
+      zoogBukur = random (50,200);
+    }
+    if (abs(zoogY - height/2)> height/2){
+      hradiY = -1*hradiY;
+      zoogBukur = random (50,200);
+    }
+
+    zoog(zoogX,zoogY,zoogBukur);
   }
 
-
-  zoog(zoogX,zoogY,zoogBukur);
-}
-
-// Teiknar geimveruna zoog
-// með miðju í punktinum (x,y)
-// Bukur: stjórnar lengdinni á búknum
-function zoog(x,y,bukur){
-  rectMode(CENTER);
-  // Teiknum búkinn
-  fill(236,36,94);
-  rect(x,y,40,bukur);
-  // Teiknum hausinn
-  fill(255);
-  ellipse(x,y - bukur/2, 80,80);
-  // Teiknum augun
-  fill(100);
-  ellipse (x - 25,y - bukur/2, 20,40);
-  ellipse (x + 25,y - bukur/2, 20,40);
-  // Teiknum fæturna
-  line (x - 20, y + bukur/2, x - 20, y + bukur/2 + 50);
-  line (x + 20, y + bukur/2, x + 20, y + bukur/2 + 50);
-}
+  // Teiknar geimveruna zoog
+  // með miðju í punktinum (x,y)
+  // Bukur: stjórnar lengdinni á búknum
+  function zoog(x,y,bukur){
+    rectMode(CENTER);
+    // Teiknum búkinn
+    fill(236,36,94);
+    rect(x,y,40,bukur);
+    // Teiknum hausinn
+    fill(255);
+    ellipse(x,y - bukur/2, 80,80);
+    // Teiknum augun
+    fill(100);
+    ellipse (x - 25,y - bukur/2, 20,40);
+    ellipse (x + 25,y - bukur/2, 20,40);
+    // Teiknum fæturna
+    line (x - 20, y + bukur/2, x - 20, y + bukur/2 + 50);
+    line (x + 20, y + bukur/2, x + 20, y + bukur/2 + 50);
+  }
   </script>
 
+  <script type="text/p5" data-preview-width="300" data-height="600">
+  var hradiX;
+  var hradiY;
+
+  function setup() {
+    createCanvas(350,550);
+    background(150, 200,0);
+  }
+
+  function mousePressed() {
+    zoog(mouseX,mouseY,random (50,200))
+  }
+
+  // Teiknar geimveruna zoog
+  // með miðju í punktinum (x,y)
+  // Bukur: stjórnar lengdinni á búknum
+  function zoog(x,y,bukur){
+    rectMode(CENTER);
+    // Teiknum búkinn
+    fill(236,36,94);
+    rect(x,y,40,bukur);
+    // Teiknum hausinn
+    fill(255);
+    ellipse(x,y - bukur/2, 80,80);
+    // Teiknum augun
+    fill(100);
+    ellipse (x - 25,y - bukur/2, 20,40);
+    ellipse (x + 25,y - bukur/2, 20,40);
+    // Teiknum fæturna
+    line (x - 20, y + bukur/2, x - 20, y + bukur/2 + 50);
+    line (x + 20, y + bukur/2, x + 20, y + bukur/2 + 50);
+  }
+  </script>
 
 
 
