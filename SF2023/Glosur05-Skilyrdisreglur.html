@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Skilyrðisreglur</title>
+    <!-- The style.css file allows you to change the look of your web pages.
+         If you include the next line in all your web pages, they will all share the same look.
+         This makes it easier to make new pages for your site. -->
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- this script only needs to get added once even if there are multiple widget instances -->
+    <script src="https://toolness.github.io/p5.js-widget/p5-widget.js"></script>
+  </head>
+  <body>
+  <div id="header">
+  <a href = "TOLV1AS.html">  <i class="fa fa-home fa-2x" aria-hidden="true"></i>     TÖLV1AS05 - Skapandi Forritun</a>
+  <div class="bar"></div>
+  </div>
+
+  <div id = "content">
+    <h1>Skilyrðisreglur</h1>
+    <h2>Syntax fyrir skilyrðisreglur</h2>
+    <p>Skilyrðisregla hefur formið:</p>
+      <pre>
+if(skilyrði){
+  skipanir
+}
+    </pre>
+
+    <p>Ef að skilyrðið innan svigans er satt eru allar skipanir innan slaufusviganna framkvæmdar. Dæmi:</p>
+
+    <script type="text/p5" data-preview-width="400" data-height="380">
+function setup() {
+  createCanvas(400,300);
+  background(255,200,0);
+  fill(236,36,94);
+}
+
+function draw(){
+  if(mouseX < 200){
+    ellipse(mouseX, mouseY, 30, 30);
+  }
+}
+    </script>
+
+    <p>Ef músin er 200 pixla eða lengra til hægri, er teiknaður hringur með miðju í staðsetningu músarinnar.</p>
+    <a href="https://www.youtube.com/watch?v=1Osb_iGDdjk">Hér er myndband</a> frá Daniel Shiffman um skilyrðisreglur.</p>
+
+
+    <p><i class="fa fa-remove fa-spin fa-fw"></i>Prófaðu að breyta skilyrðinu í <code>mouseIsPressed</code>. Hvernig færðu forritið til þess að teikna hringinn núna?</p>
+
+
+
+<h2>Syntax fyrir skilyrðisreglur með if og else</h2>
+    <p> Skilyrðissetning með if og else hefur formið:</p>
+
+      <pre>
+if(skilyrði){
+  ef skilyrðið er satt
+  eru skipanirnar hér framkvæmdar
+}
+else{
+  annars eru skipanirnar hér
+  framkvæmdar
+}
+    </pre>
+
+    <p> Í forritinu hér fyrir neðan eru teiknaðir sporbaugar vinstra megin ef bendillinn er hægra megin (mouseX>width/2) og öfugt. </p>
+
+    <script type="text/p5" data-preview-width="400" data-height="480">
+function setup() {
+  createCanvas(400,400);
+  rectMode(CENTER);
+}
+
+function draw() {
+  background(255,200,0);
+  fill(236,36,94);
+  if(mouseX < 200){
+    //x er á bilinu frá 0 upp í width/2
+  	fill(236,36,94);
+    ellipse(mouseX, mouseY, 50, 50);
+  }
+  else{
+    // x er á bilinu frá width/2 upp í width
+  	fill(94,36,236);
+    rect(mouseX,mouseY, 50, 50);
+  }
+}
+    </script>
+    <p><i class="fa fa-remove fa-spin fa-fw"></i>Prófaðu aftur að breyta skilyrðinu í <code>mouseIsPressed</code>.</p>
+    <p><i class="fa fa-remove fa-spin fa-fw"></i>Skipunina <code>rectMode(CENTER)</code> hefurðu ef til vill ekki séð áður. Athugaðu hverju það breytir að fjarlægja hana.</p>
+
+
+<h2> Notum for setningu til þess að teikna marga sporbauga</h2>
+
+
+    <p>Syntaxinn fyrir for lykkju er</p>
+      <pre>
+      for (var i = byrjunargildi; skilyrði; breyting á i){
+        skipanir sem á að endurtaka á meðan skilyrðið er satt
+      }
+      </pre>
+
+      <p>Ef teikna á 50 hringi á  mismunandi stöðum gæti for-lykkjan t.d. verið:</p>
+
+      <pre>
+       for(var i = 1; i< 50; i = i+1) {
+        //x verður slembitala á bilinu frá 0 upp í 400
+        ellipse(random(400), 200, 20,20);
+      }
+      </pre>
+
+    <p> Frekari umfjöllun um for-lykkjur má finna <a href = "Glosur04-Lykkjur.html">hér</a>. </p>
+
+    <p> Hér fyrir neðan má sjá forrit þar sem for-lykkja er notuð til að teikna 50 sporbauga. x verður á bilinu frá 0 upp í 200 ef mouseX er meira en 200, en á bilinu frá 200 upp í 400 ef músin er vinstra megin á skjánum.</p>
+
+    <script type="text/p5" data-preview-width="400" data-height="480">
+function setup() {
+  createCanvas(400,400);
+  frameRate(5);
+}
+
+function draw() {
+  background(255,200,0);
+  if(mouseX < width/2){
+  	fill(94,36,236);
+    for(var i = 1; i< 50;i = i+1) {
+      ellipse(random(width/2), random(height), random(30), random(50));
+    }
+  }
+  else{
+  	fill(236,36,94);
+    for(var j = 1; j< 50;j = j+1) {
+      rect(random(width/2,width),random(height), random(30), random(30));
+    }
+  }
+}
+</script>
+
+
+
+<p><i class="fa fa-remove fa-spin fa-fw"></i>Prófaðu að breyta gegnsæinu á sporbaugunum. Síðasta inntakið á fill() ræður gegnsæinu.</p>
+<p><i class="fa fa-remove fa-spin fa-fw"></i>Prófaðu að breyta fjölda sporbauganna. Hvað þorirðu að hafa þá marga?</p>
+
+<h2>Ekki, eða og og</h2>
+
+<p>Sem dæmi um einfalt skilyrði, hér er bara teiknaður hringur þegar músartakkanum er haldið inni.</p>
+
+
+<script type="text/p5" data-preview-width="400" data-height="280">
+function setup() {
+  createCanvas(400,200);
+}
+function draw() {
+  background(255,200,0);
+  fill(236,36,94);
+  if(mouseIsPressed){
+    ellipse(mouseX,mouseY,30,30);
+  }
+}
+</script>
+
+<p>Stundum viljum við búa til ný skilyrði úr öðrum</p>
+
+<h3>Ekki</h3>
+
+<p>Við notum neitun til þess að fá skilyrði sem er alveg öfugt við ákveðið skilyrði.</p>
+
+<p>Ef p er eitthvað skilyrði þá er !p neitunin. Þ.e. táknar "ekki p".</p>
+
+<script type="text/p5" data-preview-width="400" data-height="280">
+function setup() {
+  createCanvas(400,200);
+}
+function draw() {
+  background(255,200,0);
+  fill(236,36,94);
+  if(!mouseIsPressed){
+    ellipse(mouseX,mouseY,30,30);
+  }
+}
+</script>
+
+<h3>Eða</h3>
+
+<p>Stundum viljum við að að minnsta kosti annað tveggja skilyrða sé uppfyllt.</p>
+
+<p>Ef p og q eru einhver skilyrði þá er p || q skilyrðið sem táknar "p eða q".</p>
+
+<script type="text/p5" data-preview-width="400" data-height="280">
+function setup() {
+  createCanvas(400,200);
+}
+function draw() {
+  background(255,200,0);
+  fill(236,36,94);
+  if(mouseIsPressed || mouseX > width/2){
+    ellipse(mouseX,mouseY,30,30);
+  }
+}
+</script>
+
+
+<h3>Og</h3>
+
+<p>Stundum viljum við að tvö skilyrði séu uppfyllt.</p>
+
+<p>Ef p og q eru einhver skilyrði þá er p && q skilyrðið sem táknar "p og q".</p>
+
+<script type="text/p5" data-preview-width="400" data-height="280">
+function setup() {
+  createCanvas(400,200);
+}
+function draw() {
+  background(255,200,0);
+  fill(236,36,94);
+  if(mouseIsPressed && mouseX > width/2){
+    ellipse(mouseX,mouseY,30,30);
+  }
+}
+</script>
+
+
+
+
+<h2>Dæmi um fleiri inntök</h2>
+
+<p>Við höfum ýmsar leiðir til þess að hafa áhrif á skifturnar okkar. Í dæmunum hér á undan voru þessar innbyggðu breytur notaðar:</p>
+
+<ul>
+  <li><code>mouseX</code>: Gefur x hnitið á músarbendlinum</li>
+  <li><code>mouseY</code>: Gefur y hnitið á músarbendlinum</li>
+  <li><code>mouseIsPressed</code>: Gefur true/false eftir því hvort músartakka sé haldið inni eða ekki.</li>
+</ul>
+
+<p>Í biblíunni okkar <a href= "https://p5js.org/reference/">https://p5js.org/reference/</a> má finna ýmsar aðrar leiðir til þess að hafa áhrif á skriftur, margt munum við skoða síðar.</p>
+
+<p>Fallið keyPressed() og breytuna keyCode notum við saman til þess að greina það þegar notandinn notar takka á lyklaborðinu.</p>
+
+
+<script type="text/p5" data-preview-width="400" data-height="480">
+var x;
+
+function setup() {
+  createCanvas(400,400);
+  x = width/2;
+}
+
+function draw() {
+  background(255,200,0);
+  fill(236,36,94);
+  ellipse(x,height/2,70,70);
+}
+
+function keyPressed() {
+  if(keyCode == RIGHT_ARROW){
+    x = x + 10;
+  }
+  if(keyCode == LEFT_ARROW){
+    x = x - 10;
+  }
+}
+</script>
+
+
+<p>Þeir sem hafa áhuga geta seinna skoðað skipanir sem snjallsímar geta stjórnað. Eins og touches fyrir snertingar, acceleraationX/Y/Z fyrir hröðun og rotationX/Y/Z fyrir snúning.</p>
+
+
+  </div>
+  <div id="footer">
+  <div class="bar"></div>
+  <a href = "TOLV1AS.html">  <i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true"></i>     TÖLV1AS05 - Skapandi Forritun</a>
+  </div>
+
+  </body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Lykkjur</title>
+    <!-- The style.css file allows you to change the look of your web pages.
+         If you include the next line in all your web pages, they will all share the same look.
+         This makes it easier to make new pages for your site. -->
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- this script only needs to get added once even if there are multiple widget instances -->
+    <script src="https://toolness.github.io/p5.js-widget/p5-widget.js"></script>
+  </head>
+  <body>
+  <div id="header">
+  <a href = "TOLV1AS.html">  <i class="fa fa-home fa-2x" aria-hidden="true"></i>     TÖLV1AS05 - Skapandi Forritun</a>
+  <div class="bar"></div>
+  </div>
+
+  <div id = "content">
+    <h1>Lykkjur</h1>
+    <p>Í Scratch notuðum við lykkjur. Þær báru einfaldlega nöfn eins og "repeat 10 times" og þessháttar. Í p5js munum við nota <code>while</code> eða <code>for</code> lykkjur.</p>
+
+    <h2>While-lykkjur</h2>
+
+    <p>Skoðum hvað skilgreining lykkju eins og <code>while(i < 5)</code> gerir.</p>
+
+    <ul>
+      <li><code>i &lt; 10</code> Hér er sett fram skilyrði. Þetta skilyrði er athugað í hvert sinn sem byrjað er á lykkjunni, ef skilyrðið er uppfyllt, þá er lykkja keyrð. Ef skilyrðið er ekki uppfylt, þá er lykkjan ekki keyrð aftur og haldið áfram í næstu skipun. </li>
+    </ul>
+    <script type="text/p5" data-preview-width="200" data-height="380">
+var i = 0;
+
+function setup() {
+  createCanvas(200,300);
+  while(i < 5) {
+    text(""+i, width/2, 20+i*10);
+    i=i+1;
+  }
+}
+    </script>
+    <p>Það sem er sett inn í lykkuna er því keyrt 5 sinnum, þegar i er 0, 1, 2, 3 og 4. Þegar i er 5 þá hættir lykkjan að keyrast.</p>
+
+
+    <h2>Óendanlegar lykkjur</h2>
+
+        <p>Við viljum aldrei búa til óendanlegar lykkjur. Svo þegar við setjum fram skilyrði í lykkju, skulum við athuga að því verði einhverntíman náð. </p>
+        <p>Athugaðu hvað gerist ef þú tekur burt skipunina <code>i = i+1;</code>. Þá breytist gildið á i aldrei og lykkjunni lýkur aldrei. Þá ættirðu að fá villu því skriftan nær aldrei að klára neitt.</p>
+
+    <h2>For-lykkjur</h2>
+
+
+    <p>Skoðum hvað skilgreining lykkju eins og <code>for(var i = 0; i < 5; i = i+1)</code> gerir:</p>
+
+    <ul>
+      <li><code>var i = 0</code> Hér er verið að skilgreina breytu <code>i</code> sem er bara til inni í lykkjunni.</li>
+      <li><code>i &lt; 10</code> Hér er sett fram skilyrði. Þetta skilyrði er athugað í hvert sinn sem byrjað er á lykkjunni, ef skilyrðið er uppfyllt, þá er lykkja keyrð. Ef skilyrðið er ekki uppfylt, þá er lykkjan ekki keyrð aftur og haldið áfram í næstu skipun. </li>
+      <li><code>i = i+1</code> Hér er sagt hvað gerist í lok hverrar lykkju. Hér er i látið stækka um 1.</li>
+    </ul>
+
+    <p>Það sem er sett inn í lykkuna er því keyrt 5 sinnum, þegar i er 0, 1, 2, 3 og 4. Þegar i er 5 þá hættir lykkjan að keyrast.</p>
+
+    <p>Svo þessi skrifta hér að neðan ætti að gera nákvæmlega það sama og skriftan að ofan.</p>
+
+    <script type="text/p5" data-preview-width="200" data-height="380">
+function setup() {
+  createCanvas(200,300);
+  for(var i = 0; i < 5; i = i+1) {
+    text(""+i, width/2, 20+i*10);
+  }
+}
+    </script>
+
+
+    <h2>For vs. while</h2>
+
+    <p>Hvernær viljum við nota for og hvenær while?</p>
+    <p>Það fer nokkuð eftir smekk og viðfangsefni. Við getum notað hvora sem er í öllum tilfellum til þess að fá sömu niðurstöðuna.</p>
+
+    <ul>
+      <li><code>for</code>-lykkur eru góðar því þeir skilgreina hlaupabreytuna í skilgreiningu lykkjunnar, svo kóðinn verður læsilegri.</li>
+      <li><code>while</code>-lykkjur gæti verið gott að nota ef nota þarf hlaupabreytuna eftir að lykkjan er keyrð.
+    </ul>
+
+    <p><i class="fa fa-remove fa-spin fa-fw"></i> Prófaðu til dæmis að setja skipunina <code>text("Lykkja búin", width/2, 20+i*10);</code> á eftir lykkjunni í skriftunum hér að ofan. Þetta ætti að virka vel fyrir while-lykkjuna en virkar ekki fyrir for-lykkjuna. Það er vegna þess að breytan i er bara til inni í for lykkjunni.</p>
+    <p>Í dæmum hér mun ég almennt nota for-lykkjur.</p>
+
+
+
+    <h2>For-lykkja teiknar hringi</h2>
+
+
+    <script type="text/p5" data-preview-width="200" data-height="380">
+function setup() {
+  createCanvas(200,300);
+  background(255, 215, 0);
+  fill(0);
+  colorMode(HSB);
+  frameRate(5);
+}
+
+function draw(){
+  fill(random(0,360),75,100);
+  for(var i = 0; i < 5 ; i = i + 1) {
+    ellipse(100, 50 + i*20, 15, 15);
+  }
+}
+    </script>
+<p><i class="fa fa-remove fa-spin fa-fw"></i> Prófaðu að breyta kóðanum þannig að 10 hringir séu teiknaðir.</p>
+<p><i class="fa fa-remove fa-spin fa-fw"></i> Prófaðu að færa <code>fill</code> skipunina inn í for lykkjuna. Hvað breytist? Reyndu að sjá það fyrir þér áður en þú keyrir forritið.</p>
+
+
+
+<h2>For lykkja teiknar línur</h2>
+      <p> Breytan stepSize er skilgreind í fyrstu línu. Hún segir til um hversu langt er á milli tveggja lína.</p>
+      <p> for lykkjan teiknar línu frá punktinum 0,y sem er við vinstri rönd yfir í punktinn width, y sem er á hægri rönd. y hefur gildir 20 í upphafi, en eykst svo um stepSize í hvert skipti sem farið er í gegn um lykkjuna.</p>
+      <p>Lykkjan stoppar þegar y er orðið jafnstórt eða stærra en height sem er hæðin á skjánum.</p>
+      <p><i class="fa fa-remove fa-spin fa-fw"></i>Prófið að breyta gildinu á stepSize og sjá hvaða áhrif það hefur á teikninguna!</p>
+
+      <script type="text/p5" data-preview-width="200" data-height="380">
+var stepSize = 20;
+
+function setup() {
+  createCanvas(200,300);
+  background(230, 0, 230);
+  strokeWeight(2);
+}
+
+function draw(){
+  for(var y = 80; y < height; y = y + stepSize) {
+      line(0, y, width, y);
+  }
+}
+      </script>
+
+<h2> Slembilitur valinn með random </h2>
+      <p>Rétthyrningurinn er teiknaður í x = 0, x = 10, x = 20, o.s.fr.v.  í hvert sinn sem lykkjan
+      er keyrð er gildið á x aukið um 10. Liturinn á rétthyrningnum er valinn í fill. Við veljum
+    slembilit á bilinu frá 50 upp í 150. 0 er svart og 255 er hvítt.</p>
+
+      <script type="text/p5" data-preview-width="300" data-height="380">
+function setup() {
+  createCanvas(300,300);
+  background(100);
+  noStroke();
+  frameRate(5);
+}
+
+function draw() {
+  for(var x = 0; x < width; x = x+10){
+    fill(random(50,150));
+    rect(x,width/2, 10,10);
+  }
+}
+      </script>
+
+<h2>Faldaðar lykkjur</h2>
+
+<p>Við getum sett lykkju inn í lykkju, þá köllum við hana í heild faldaða lykkju (e. nested loop).</p>
+
+<p>Þetta gerum við t.d. þegar við viljum ýtra yfir tvær breytur í einu:</p>
+
+<p>Hér fyrir neðan tekur x gildi á 20 punkta fresti frá 0 og upp í width, sem er breidd gluggans. y tekur gildi á bilinu frá 0 upp í height, sem að er hæð gluggans.</p>
+      <script type="text/p5" data-preview-width="300" data-height="380">
+function setup() {
+  createCanvas(300,300);
+  background(100);
+  noStroke();
+  frameRate(5);
+}
+
+function draw() {
+  for(var x = 0; x < width; x = x+10){
+    for(var y = 0; y < height; y = y+10){
+      fill(random(50,150));
+      rect(x,y, 10,10);
+    }
+  }
+}
+      </script>
+
+
+
+<h1>Önnur dæmi</h1>
+     <ul>
+     <li><a href="http://learningprocessing.com/examples/chp06/example-06-11-many-zoogs"> For lúppa notuð til að teikna marga Zoog-kalla í processing.</a></li>
+     </ul>
+
+
+
+
+
+  <div id="footer">
+  <div class="bar"></div>
+  <a href = "TOLV1AS.html">  <i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true"></i>     TÖLV1AS05 - Skapandi Forritun</a>
+  </div>
+
+  </body>
+</html>

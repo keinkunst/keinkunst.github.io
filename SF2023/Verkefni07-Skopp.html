@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Verkefni 07: Skopp</title>
+    <!-- The style.css file allows you to change the look of your web pages.
+         If you include the next line in all your web pages, they will all share the same look.
+         This makes it easier to make new pages for your site. -->
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- this script only needs to get added once even if there are multiple widget instances -->
+    <script src="https://toolness.github.io/p5.js-widget/p5-widget.js"></script>
+  </head>
+  <body>
+  <div id="header">
+  <a href = "TOLV1AS.html">  <i class="fa fa-home fa-2x" aria-hidden="true"></i>     TÖLV1AS05 - Skapandi Forritun</a>
+  <div class="bar"></div>
+  </div>
+
+  <div id = "content">
+    <h1>Verkefni 07: Skopp</h1>
+
+        <p>Búið til leik, þar sem bolta (hvernig sem hann svo er í laginu) er haldið á lofti.</p>
+
+<script type="text/p5" data-preview-width="400" data-height="580">
+var boltiX = 100;
+var boltiY = 100;
+var hradiX = 5;
+var hradiY = -6;
+var boltiStaerd = 20;
+var stig = 0;
+var spadiBreidd = 150;
+var spadiThykkt = 25;
+var spadiY;
+
+function setup() {
+	createCanvas(400,500);
+	spadiY = height - 45;
+	rectMode(CENTER);
+	textFont("Courier New",16);
+	textStyle(BOLD);
+}
+
+function draw() {
+  background(255,200,0);
+	// Reikna ný hnit út frá hraða boltans:
+  boltiX = boltiX + hradiX;
+  boltiY = boltiY + hradiY;
+	// Athuga hvort boltinn snertir vegginn hægra megin:
+  if ((boltiX > width-boltiStaerd/2))  {
+    hradiX = hradiX * -1;
+  }
+  	// Athuga hvort boltinn snertir þakið
+  if ((boltiY < boltiStaerd)) {
+    hradiY = hradiY * -1;
+  }
+  // Athuga hvort bolti snertir spaða:
+  if(abs(spadiY - boltiY) < boltiStaerd/2 + spadiThykkt/2 && abs(mouseX - boltiX) < boltiStaerd/2 + spadiBreidd/2){
+    hradiY = hradiY * -1;
+  }
+	// Teikna boltann
+  fill(236,36,94);
+  rect(boltiX, boltiY, boltiStaerd, boltiStaerd);
+	// Teikna spaðann
+  fill(3,123,227);
+  rect(mouseX,spadiY ,spadiBreidd,spadiThykkt);
+  fill (0);
+  ellipse(mouseX, spadiY, 10,10);
+	// Teikna stigin
+  fill(0);
+  text("Stig: " + stig,10,20);
+}
+</script>
+
+        <p>Byrjaðu með kóðann hér að ofan, en eftirfarandi atriði verður þú að útfæra:</p>
+        <ul>
+          <li>Boltinn á ekki að fara í gegnum spaðann, heldur skoppa af honum.</li>
+          <li>Á boltinn að fara út af skjánum? Hvernig látum við leikinn halda áfram?</li>
+          <li>Hvenær á leikmaðurinn að fá stig.</li>
+        </ul>
+        <p>Þetta var grunnurinn. Þetta er líka grunnurinn í Atari leikjunum vinsælu <a href = "https://en.wikipedia.org/wiki/Pong">Pong</a> og <a href = "https://en.wikipedia.org/wiki/Breakout_(video_game)">Breakout</a>
+
+        <p>En þið eigið að fara lengra. Hér er eitthvað sem mér dettur í hug:</p>
+
+        <ul>
+          <li>Leikið ykkur með útlitið. Boltinn og spaðinn eru kannski einföld form, en þeim má vel breyta sem og bæta við teikninguna. Áskorun: Reyndu að gera teikningarnar fyrir þessa huti flóknar og fallegar.  </li>
+          <li>Leiknum öllum mætti snúa á hlið.</li>
+          <li>Spaðinn gæti breytt um lögun í spiluninni.</li>
+          <li>Aðrir hlutir gætu birst sem á að ná með boltanum, eða spaðanum.</li>
+          <li>Boltinn gæti farið hraðar með tímanum.</li>
+          <li>Hægt að bæta við öðrum hlutum sem boltinn skoppar af, eins og t.d. í kúluspili (e. Pinball).</li>
+          <li>Spilarinn getur breytt hraða og/eða stefnu boltans með spaðanum einhvernveginn, og stjórnað þannig ferð hans betur. Veltu því t.d. hvernig er dæmigert að þetta gerist í leikjum eins og Pong og Breakout?</li>
+          <li>Hægt að fara í tveggja manna (eins og í <a href = "http://www.ponggame.org/">Pong</a>). Þá ætti hinum spaðanum að vera stjórnað með lyklaborðinu.</li>
+        </ul>
+
+
+  </div>
+
+
+  <div id="footer">
+  <div class="bar"></div>
+  <a href = "TOLV1AS.html">  <i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true"></i>     TÖLV1AS05 - Skapandi Forritun</a>
+  </div>
+
+  </body>
+</html>

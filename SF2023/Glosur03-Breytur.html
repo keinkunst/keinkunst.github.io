@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Breytur</title>
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- this script only needs to get added once even if there are multiple widget instances -->
+    <script src="https://toolness.github.io/p5.js-widget/p5-widget.js"></script>
+  </head>
+  <body>
+  <div id="header">
+  <a href = "TOLV1AS.html">  <i class="fa fa-home fa-2x" aria-hidden="true"></i>     TÖLV1AS05 - Skapandi Forritun</a>
+  <div class="bar"></div>
+  </div>
+
+
+
+  <div id = "content">
+    <h1>Breytur</h1>
+
+    <p>Segjum sem svo að við viljum færa stjörnuna til eða teikna aðra stjörnu. Þá er kóðinn hér fyrir ofan ekki hentugur því nýja x eða y gildið þarf að skrá á svo mörgum stöðum. Hægt er að búa til breyturnar x og y til þess að ákvarða staðsetninguna:</p>
+    <script type="text/p5" data-preview-width="200" data-height="380">
+var x = 100;
+var y = 150;
+
+function setup() {
+  createCanvas(200,300);
+  noStroke();
+}
+
+function draw() {
+  background(209, 255, 45);
+
+  //teiknaStjörnu
+  beginShape();
+  fill(155, 92,0);
+  vertex(x-50,y);
+  vertex(x-10, y-10);
+  vertex(x,y-50);
+  vertex(x+10,y-10);
+  vertex(x+50,  y);
+  vertex(x+10,y+10);
+  vertex(x,y+50);
+  vertex(x-10, y+10);
+  endShape();
+}
+    </script>
+
+    <p>Prófaðu að breyta gildunum á x og y og sjáðu að öll stjarnan færist til.</p>
+
+    <p>Breytur eru skilgreindar með því að skrifa þær allar fremst í skjalið, á undan setup().</p>
+    <p>Fyrir framan nafnið á breytunni skrifum við var þegar hún er skilgreind, til að sýna að við erum að skilgreina nýja breytu (e. variable)</p>
+    <p>Við gefum breytunni gildi með því einfaldlega að nota jafnaðarmerki og skrifa svo viðeigandi gildi.</p>
+
+    <p>Lesið ykkur til um breytur í JavaScript hér: <a target="_blank" href="https://www.w3schools.com/js/js_variables.asp">https://www.w3schools.com/js/js_variables.asp</a></p>
+
+
+  </div>
+
+  <div id="footer">
+  <div class="bar"></div>
+  <a href = "TOLV1AS.html">  <i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true"></i>     TÖLV1AS05 - Skapandi Forritun</a>
+  </div>
+
+
+  </body>
+</html>

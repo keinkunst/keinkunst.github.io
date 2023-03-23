@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Verkefni 08: Fígúruskopp</title>
+    <!-- The style.css file allows you to change the look of your web pages.
+         If you include the next line in all your web pages, they will all share the same look.
+         This makes it easier to make new pages for your site. -->
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- this script only needs to get added once even if there are multiple widget instances -->
+    <script src="https://toolness.github.io/p5.js-widget/p5-widget.js"></script>
+  </head>
+  <body>
+  <div id="header">
+  <a href = "TOLV1AS.html">  <i class="fa fa-home fa-2x" aria-hidden="true"></i>     TÖLV1AS05 - Skapandi Forritun</a>
+  <div class="bar"></div>
+  </div>
+
+  <div id = "content">
+    <h1><i class="fa fa-cog fa-spin fa-fw"></i>Verkefni08: Fígúruskopp</h1>
+
+    <p> Í þessu verkefni áttu að búa til fall sem teiknar fígúruna þína úr Verkefni 03. Svo skaltu nota það fall til að teikna fígúruna þína. Svo áttu að nota það fall á einhvern skemmtilegan hátt eins og:</p>
+    <ul>
+      <li>Fígúran skoppar um skjáinn og breytist þegar hún lendir á veggjunum.</li>
+      <li>Hægt er að stimpla ólíkum útgáfum af fígúrunni á skjáinn.</li>
+      <li>Lykkja teiknar margar fýgúrum út um allan skjáinn.</li>
+    </ul>
+
+    <p>Hér eru lausnir þar sem ég nota mína fígúru, geimveruna Zoog:</p>
+  <script type="text/p5" data-preview-width="300" data-height="600">
+  var zoogX = 10;
+  var zoogY = 10;
+  var zoogBukur = 100;
+  var hradiX = 5;
+  var hradiY = 3;
+
+  function setup() {
+    createCanvas(400,550);
+  }
+  function draw() {
+    background(255,200,0);
+    zoogX = zoogX + hradiX;
+    zoogY = zoogY + hradiY;
+    if (abs(zoogX - width/2)> width/2){
+      hradiX = -1*hradiX;
+      zoogBukur = random (50,200);
+    }
+    if (abs(zoogY - height/2)> height/2){
+      hradiY = -1*hradiY;
+      zoogBukur = random (50,200);
+    }
+
+    zoog(zoogX,zoogY,zoogBukur);
+  }
+
+  // Teiknar geimveruna zoog
+  // með miðju í punktinum (x,y)
+  // Bukur: stjórnar lengdinni á búknum
+  function zoog(x,y,bukur){
+    rectMode(CENTER);
+    // Teiknum búkinn
+    fill(236,36,94);
+    rect(x,y,40,bukur);
+    // Teiknum hausinn
+    fill(255);
+    ellipse(x,y - bukur/2, 80,80);
+    // Teiknum augun
+    fill(100);
+    ellipse (x - 25,y - bukur/2, 20,40);
+    ellipse (x + 25,y - bukur/2, 20,40);
+    // Teiknum fæturna
+    line (x - 20, y + bukur/2, x - 20, y + bukur/2 + 50);
+    line (x + 20, y + bukur/2, x + 20, y + bukur/2 + 50);
+  }
+  </script>
+
+  <script type="text/p5" data-preview-width="300" data-height="600">
+  function setup() {
+    createCanvas(350,550);
+    background(150, 200,0);
+  }
+
+  function mousePressed() {
+    zoog(mouseX,mouseY,random (50,200))
+  }
+
+  // Teiknar geimveruna zoog
+  // með miðju í punktinum (x,y)
+  // Bukur: stjórnar lengdinni á búknum
+  function zoog(x,y,bukur){
+    rectMode(CENTER);
+    // Teiknum búkinn
+    fill(236,36,94);
+    rect(x,y,40,bukur);
+    // Teiknum hausinn
+    fill(255);
+    ellipse(x,y - bukur/2, 80,80);
+    // Teiknum augun
+    fill(100);
+    ellipse (x - 25,y - bukur/2, 20,40);
+    ellipse (x + 25,y - bukur/2, 20,40);
+    // Teiknum fæturna
+    line (x - 20, y + bukur/2, x - 20, y + bukur/2 + 50);
+    line (x + 20, y + bukur/2, x + 20, y + bukur/2 + 50);
+  }
+  </script>
+
+  <script type="text/p5" data-preview-width="300" data-height="600">
+  function setup() {
+  createCanvas(400,550);
+  for(var x = 40; x < width; x = x + 80){
+    zoog(x,height/2,random(50,200));
+  }
+}
+
+// Teiknar geimveruna zoog
+// með miðju í punktinum (x,y)
+// Bukur: stjórnar lengdinni á búknum
+function zoog(x,y,bukur){
+  rectMode(CENTER);
+  // Teiknum búkinn
+  fill(236,36,94);
+  rect(x,y,40,bukur);
+  // Teiknum hausinn
+  fill(255);
+  ellipse(x,y - bukur/2, 80,80);
+  // Teiknum augun
+  fill(100);
+  ellipse (x - 25,y - bukur/2, 20,40);
+  ellipse (x + 25,y - bukur/2, 20,40);
+  // Teiknum fæturna
+  line (x - 20, y + bukur/2, x - 20, y + bukur/2 + 50);
+  line (x + 20, y + bukur/2, x + 20, y + bukur/2 + 50);
+}
+  </script>
+
+
+
+  </div>
+
+
+
+
+
+  <div id="footer">
+  <div class="bar"></div>
+  <a href = "TOLV1AS.html">  <i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true"></i>     TÖLV1AS05 - Skapandi Forritun</a>
+  </div>
+
+  </body>
+</html>
