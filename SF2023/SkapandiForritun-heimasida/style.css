@@ -21,6 +21,7 @@ h1 {
   color: #00FF00;
   background-color: #888888;
   font-style: bold;
+  font-size: 300%;
 }
 
 h2 {
@@ -31,12 +32,12 @@ h2 {
 }
 
 a {
+  font-family: Comic sans ms;
   color: #AAAAFF;
 }
 
 a:hover {
   color: #000000;
-  font-size: 20px;
 }
 
 ul {
