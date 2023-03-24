@@ -6,6 +6,7 @@ body {
 background-color: #EDF2F4;
 color: #2B2D42;
 font-family: 'Fira Sans', sans-serif;
+font-size: 12px;
 }
 
 #content {
@@ -164,7 +165,7 @@ code {
 #content code {
     display: block;
     padding: 0.5em 1em;
-    border: 1px solid #bebab0;
+    /* border: 1px solid #bebab0; */
 }
 
 .cntrl {

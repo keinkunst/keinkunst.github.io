@@ -3,6 +3,9 @@ innihledsins. En sjálft innihald síðunnar er í HTML kóðanum.
 Til þess að læra að gera eitthvað, prófaðu að leita á google af því sem þú vilt vita, til dæmis:
 "how to change link color." */
 
+
+@import url('https://fonts.cdnfonts.com/css/curlz');
+
 html{
 }
 
@@ -10,7 +13,8 @@ html{
 body {
   background-color: #FF0000;
   color: #FFFFAA;
-  font-family: papyrus;
+  font-family: Curlz;
+  font-size: 32px;
 }
 
 h1 {
