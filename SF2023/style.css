@@ -152,13 +152,13 @@ pre {
 code {
     font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
     font-size: 95%;
-    line-height: 140%;
+    line-height: 100%;
     white-space: pre-wrap;
-    background: #faf8f0;
+    color: #ae0000;
 }
 
 #content code {
-    padding: 0.5em 0.5em;
+ 
 }
 
 .cntrl {
